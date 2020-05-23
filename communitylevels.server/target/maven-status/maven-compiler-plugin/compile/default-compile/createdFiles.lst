@@ -1,0 +1,8 @@
+ch\maak\wl\communitylevels\communitylevels\server\level\LevelPageService.class
+ch\maak\wl\communitylevels\communitylevels\server\ServerSession.class
+ch\maak\wl\communitylevels\communitylevels\server\db\MySqlSqlService.class
+ch\maak\wl\communitylevels\communitylevels\server\level\CreatorPageService.class
+ch\maak\wl\communitylevels\communitylevels\server\level\PlayerPageService.class
+ch\maak\wl\communitylevels\communitylevels\server\util\QL.class
+ch\maak\wl\communitylevels\communitylevels\server\security\ServerAccessControlService.class
+ch\maak\wl\communitylevels\communitylevels\server\ServerServletFilter.class
