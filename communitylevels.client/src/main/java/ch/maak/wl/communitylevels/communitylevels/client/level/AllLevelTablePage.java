@@ -389,7 +389,7 @@ public class AllLevelTablePage extends AbstractPageWithTable<Table> {
 
 			@Override
 			protected int getConfiguredWidth() {
-				return 100;
+				return 115;
 			}
 		}
 
@@ -402,7 +402,7 @@ public class AllLevelTablePage extends AbstractPageWithTable<Table> {
 
 			@Override
 			protected int getConfiguredWidth() {
-				return 100;
+				return 115;
 			}
 		}
 
