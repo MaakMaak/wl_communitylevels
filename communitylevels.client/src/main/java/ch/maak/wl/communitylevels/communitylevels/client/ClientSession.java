@@ -7,9 +7,6 @@ import org.eclipse.scout.rt.client.IClientSession;
 import org.eclipse.scout.rt.client.session.ClientSessionProvider;
 import org.eclipse.scout.rt.shared.services.common.code.CODES;
 
-/**
- * @author Matthias
- */
 public class ClientSession extends AbstractClientSession {
 
 	public ClientSession() {

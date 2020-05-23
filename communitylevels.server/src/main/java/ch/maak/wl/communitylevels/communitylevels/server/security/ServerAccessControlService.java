@@ -8,9 +8,6 @@ import org.eclipse.scout.rt.shared.security.RemoteServiceAccessPermission;
 
 import ch.maak.wl.communitylevels.communitylevels.shared.security.AccessControlService;
 
-/**
- * @author Matthias
- */
 @Replace
 public class ServerAccessControlService extends AccessControlService {
 
@@ -19,7 +16,6 @@ public class ServerAccessControlService extends AccessControlService {
 		Permissions permissions = new Permissions();
 		permissions.add(new RemoteServiceAccessPermission("*.shared.*", "*"));
 
-		// TODO [Matthias]: Fill access control service
 		permissions.add(new AllPermission());
 		return permissions;
 	}

@@ -2,9 +2,6 @@ package ch.maak.wl.communitylevels.communitylevels.shared;
 
 import org.eclipse.scout.rt.shared.AbstractIcons;
 
-/**
- * @author Matthias
- */
 public class Icons extends AbstractIcons {
 
 	private static final long serialVersionUID = 1L;

@@ -14,8 +14,6 @@ import org.eclipse.scout.rt.shared.services.common.security.IAccessControlServic
  * Replace this service at server side to load permission collection. It is
  * <b>not</b> required to implement {@link #execLoadPermissions(String)} at
  * client side.
- *
- * @author Matthias
  */
 public class AccessControlService extends AbstractAccessControlService<String> {
 
