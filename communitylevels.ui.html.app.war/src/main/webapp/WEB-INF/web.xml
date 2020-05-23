@@ -50,7 +50,7 @@
 
   <session-config>
     <!-- Session timeout in minutes -->
-    <session-timeout>5</session-timeout>
+    <session-timeout>30</session-timeout>
     <cookie-config>
       <http-only>true</http-only>
       <!-- disable 'secure' flag below if an unencrypted channel (no https) is used -->
