@@ -66,102 +66,103 @@
     </site>
   </distributionManagement>
   <properties>
+    <master_plugin_surefire_version>2.22.1</master_plugin_surefire_version>
+    <master_dependency_phantomjs_version>2.1.1</master_dependency_phantomjs_version>
+    <master_plugin_jxr_version>3.0.0</master_plugin_jxr_version>
+    <master_plugin_build-helper_version>3.0.0</master_plugin_build-helper_version>
+    <master_plugin_antrun_version>1.8</master_plugin_antrun_version>
+    <master_plugin_replacer_version>1.5.3</master_plugin_replacer_version>
+    <master_git-id_useNative>false</master_git-id_useNative>
+    <master_plugin_sortpom_version>2.10.0</master_plugin_sortpom_version>
+    <master_plugin_assembly_version>3.1.0</master_plugin_assembly_version>
+    <master_plugin_war_version>3.2.2</master_plugin_war_version>
+    <master_plugin_duplicate-finder_version>1.3.0</master_plugin_duplicate-finder_version>
+    <master_unitTest_skip>false</master_unitTest_skip>
+    <master_plugin_properties_version>2.0.1</master_plugin_properties_version>
+    <master_deployAtEnd>true</master_deployAtEnd>
+    <master_plugin_dependency_version>3.1.1</master_plugin_dependency_version>
+    <master_test_forkCount>0.5C</master_test_forkCount>
+    <master_plugin_changelog_version>2.3</master_plugin_changelog_version>
+    <jdk.min.version>1.8</jdk.min.version>
+    <db.password>${communitylevels.db.password}</db.password>
+    <master_sanityCheck_skip>false</master_sanityCheck_skip>
+    <master_plugin_failsafe_version>2.22.1</master_plugin_failsafe_version>
+    <master_test_remoteDebugPort>8000</master_test_remoteDebugPort>
+    <master_release_newVersion>${base.version}.I</master_release_newVersion>
+    <master_plugin_clean_version>3.1.0</master_plugin_clean_version>
+    <jdk.source.version>13</jdk.source.version>
+    <master_deploy_ReleaseId>repo.eclipse.org</master_deploy_ReleaseId>
+    <master_plugin_git-commit-id_version>2.2.5</master_plugin_git-commit-id_version>
+    <maven.build.timestamp.format>yyyyMMdd-HHmmss</maven.build.timestamp.format>
+    <master_test_timeout>300</master_test_timeout>
+    <master_plugin_gpg_version>1.6</master_plugin_gpg_version>
+    <master_plugin_source_version>3.0.1</master_plugin_source_version>
+    <master_test_runOrder>hourly</master_test_runOrder>
+    <master_plugin_tycho_version>1.3.0</master_plugin_tycho_version>
+    <master_plugin_flatten_version>1.0.1</master_plugin_flatten_version>
+    <master_plugin_tycho-extras_version>1.3.0</master_plugin_tycho-extras_version>
+    <master_plugin_jandex_version>1.0.5</master_plugin_jandex_version>
+    <master_plugin_javadoc_version>3.0.1</master_plugin_javadoc_version>
+    <master_plugin_jaxws_version>2.6</master_plugin_jaxws_version>
+    <master_plugin_eclipse-settings_version>3.0.3</master_plugin_eclipse-settings_version>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <master_plugin_jasmine_version>2.1</master_plugin_jasmine_version>
+    <master_test_argLine>${master_test_jacocoArgLine} -Xms512m -Xmx2048m
+      -Dfile.encoding=UTF-8</master_test_argLine>
+    <master_plugin_jar_version>3.1.1</master_plugin_jar_version>
+    <master_plugin_ant_version>1.10.5</master_plugin_ant_version>
+    <master_plugin_compiler_version>3.8.0</master_plugin_compiler_version>
+    <master_plugin_tomcat7_version>2.2</master_plugin_tomcat7_version>
     <master_enforcerCheck_skip>false</master_enforcerCheck_skip>
     <master_plugin_eclipse_version>2.10</master_plugin_eclipse_version>
     <master_plugin_bundle_version>4.1.0</master_plugin_bundle_version>
     <master_git-id_failNoGit>false</master_git-id_failNoGit>
-    <master_plugin_surefire_version>2.22.1</master_plugin_surefire_version>
-    <master_dependency_phantomjs_version>2.1.1</master_dependency_phantomjs_version>
     <master_plugin_resources_version>3.1.0</master_plugin_resources_version>
-    <master_plugin_jxr_version>3.0.0</master_plugin_jxr_version>
     <master_dependency_jaxws_version>2.3.1</master_dependency_jaxws_version>
-    <master_plugin_build-helper_version>3.0.0</master_plugin_build-helper_version>
-    <master_plugin_antrun_version>1.8</master_plugin_antrun_version>
     <master_coverage_skip>false</master_coverage_skip>
-    <master_plugin_replacer_version>1.5.3</master_plugin_replacer_version>
-    <master_git-id_useNative>false</master_git-id_useNative>
     <master_plugin_release_version>2.5.3</master_plugin_release_version>
     <master_plugin_jacoco_version>0.8.2</master_plugin_jacoco_version>
     <master_plugin_project-info-reports_version>3.0.0</master_plugin_project-info-reports_version>
     <maven.api.version>3.5.3</maven.api.version>
     <master_plugin_license_version>3.0</master_plugin_license_version>
-    <master_plugin_sortpom_version>2.10.0</master_plugin_sortpom_version>
     <master_plugin_enforcer_version>1.4.1</master_plugin_enforcer_version>
     <master_dependency_eclipseSettings_master_version>3.1.0</master_dependency_eclipseSettings_master_version>
-    <master_plugin_assembly_version>3.1.0</master_plugin_assembly_version>
     <maven.min.version>3.5.3</maven.min.version>
-    <master_plugin_war_version>3.2.2</master_plugin_war_version>
-    <master_plugin_duplicate-finder_version>1.3.0</master_plugin_duplicate-finder_version>
     <master_plugin_versions_version>2.7</master_plugin_versions_version>
     <master_release_tagName>${base.version}.I</master_release_tagName>
     <master_plugin_site_version>3.7.1</master_plugin_site_version>
-    <master_unitTest_skip>false</master_unitTest_skip>
     <master_release_pushChanges>false</master_release_pushChanges>
     <master_plugin_phantomjs_version>0.7</master_plugin_phantomjs_version>
     <master_test_reuseVm>true</master_test_reuseVm>
     <master_release_checkinMessage>[release] version updated to 1.0.0-SNAPSHOT</master_release_checkinMessage>
     <master_plugin_animal-sniffer_version>1.17</master_plugin_animal-sniffer_version>
     <master_plugin_nexus-staging_version>1.6.8</master_plugin_nexus-staging_version>
-    <master_plugin_properties_version>2.0.1</master_plugin_properties_version>
-    <master_deployAtEnd>true</master_deployAtEnd>
-    <master_plugin_dependency_version>3.1.1</master_plugin_dependency_version>
     <master_plugin_scm_version>1.11.1</master_plugin_scm_version>
     <master_dependency_tycho-compiler_version>1.3.0</master_dependency_tycho-compiler_version>
     <master_ossrh_autoReleaseAfterClose>false</master_ossrh_autoReleaseAfterClose>
-    <master_test_forkCount>0.5C</master_test_forkCount>
     <master_plugin_ear_version>3.0.1</master_plugin_ear_version>
-    <master_plugin_changelog_version>2.3</master_plugin_changelog_version>
     <master_git-id_skip>false</master_git-id_skip>
     <master_plugin_deploy_version>2.8.2</master_plugin_deploy_version>
     <master_test_jvmMemory>-Xms512m -Xmx2048m</master_test_jvmMemory>
-    <jdk.min.version>1.8</jdk.min.version>
     <master_unitTest_failureIgnore>true</master_unitTest_failureIgnore>
-    <master_sanityCheck_skip>false</master_sanityCheck_skip>
-    <master_plugin_failsafe_version>2.22.1</master_plugin_failsafe_version>
-    <master_test_remoteDebugPort>8000</master_test_remoteDebugPort>
-    <master_release_newVersion>${base.version}.I</master_release_newVersion>
-    <master_plugin_clean_version>3.1.0</master_plugin_clean_version>
     <master_signatureCheck_skip>false</master_signatureCheck_skip>
     <ch.maak.wl.communitylevels.communitylevels.version>1.0.0-SNAPSHOT</ch.maak.wl.communitylevels.communitylevels.version>
-    <jdk.source.version>13</jdk.source.version>
     <master_ecj-compiler_version>3.16.0</master_ecj-compiler_version>
     <master_plugin_cargo_version>1.7.1</master_plugin_cargo_version>
-    <master_deploy_ReleaseId>repo.eclipse.org</master_deploy_ReleaseId>
-    <master_plugin_git-commit-id_version>2.2.5</master_plugin_git-commit-id_version>
     <master_plugin_install_version>2.5.2</master_plugin_install_version>
-    <maven.build.timestamp.format>yyyyMMdd-HHmmss</maven.build.timestamp.format>
-    <master_plugin_gpg_version>1.6</master_plugin_gpg_version>
-    <master_test_timeout>300</master_test_timeout>
     <master_test_debugArgLine>-Xdebug
       -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n</master_test_debugArgLine>
-    <master_plugin_source_version>3.0.1</master_plugin_source_version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <master_plugin_exec_version>1.6.0</master_plugin_exec_version>
-    <master_test_runOrder>hourly</master_test_runOrder>
-    <master_plugin_tycho_version>1.3.0</master_plugin_tycho_version>
-    <master_plugin_flatten_version>1.0.1</master_plugin_flatten_version>
     <master_deploy_SnapshotUrl>https://repo.eclipse.org/content/repositories/scout-snapshots/</master_deploy_SnapshotUrl>
     <master_coverage_jacoco_destFile>C:\Users\Matthias\OneDrive\IT\Scout\wl-communitylevels\communitylevels\communitylevels/../target/jacoco-all.exec</master_coverage_jacoco_destFile>
-    <master_plugin_tycho-extras_version>1.3.0</master_plugin_tycho-extras_version>
     <master_release_milestoneVersion>I</master_release_milestoneVersion>
     <master_webTest_skip>false</master_webTest_skip>
-    <master_plugin_javadoc_version>3.0.1</master_plugin_javadoc_version>
-    <master_plugin_jandex_version>1.0.5</master_plugin_jandex_version>
     <master_deploy_SnapshotId>repo.eclipse.org</master_deploy_SnapshotId>
-    <master_plugin_jaxws_version>2.6</master_plugin_jaxws_version>
-    <master_plugin_eclipse-settings_version>3.0.3</master_plugin_eclipse-settings_version>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <master_plugin_jasmine_version>2.1</master_plugin_jasmine_version>
     <master_deploy_ReleaseUrl>https://repo.eclipse.org/content/repositories/scout-releases/</master_deploy_ReleaseUrl>
-    <master_test_argLine>${master_test_jacocoArgLine} -Xms512m -Xmx2048m
-      -Dfile.encoding=UTF-8</master_test_argLine>
     <org.eclipse.scout.rt.version>9.0.0.033_Simrel_2019_12</org.eclipse.scout.rt.version>
-    <master_plugin_jar_version>3.1.1</master_plugin_jar_version>
     <master_javadoc_opts></master_javadoc_opts>
     <master_plugin_jarsigner_version>1.1.5</master_plugin_jarsigner_version>
-    <master_plugin_ant_version>1.10.5</master_plugin_ant_version>
-    <master_plugin_compiler_version>3.8.0</master_plugin_compiler_version>
-    <master_plugin_tomcat7_version>2.2</master_plugin_tomcat7_version>
     <master_flatten_mode>oss</master_flatten_mode>
   </properties>
   <dependencyManagement>
