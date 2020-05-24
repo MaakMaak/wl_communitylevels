@@ -111,11 +111,6 @@ public class CreatorTablePage extends AbstractPageWithTable<Table> {
 		public class CreatorIdColumn extends AbstractStringColumn {
 
 			@Override
-			protected int getConfiguredWidth() {
-				return 100;
-			}
-
-			@Override
 			protected boolean getConfiguredDisplayable() {
 				return false;
 			}

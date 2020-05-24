@@ -7,13 +7,13 @@ import org.eclipse.scout.rt.client.ui.desktop.outline.pages.IPage;
 import org.eclipse.scout.rt.platform.Order;
 import org.eclipse.scout.rt.platform.text.TEXTS;
 
+import ch.maak.wl.communitylevels.communitylevels.client.clan.ClanTablePage;
 import ch.maak.wl.communitylevels.communitylevels.client.level.AllLevelTablePage;
 import ch.maak.wl.communitylevels.communitylevels.client.level.MostDifficultLevelTablePage;
 import ch.maak.wl.communitylevels.communitylevels.client.level.NewestLevelTablePage;
 import ch.maak.wl.communitylevels.communitylevels.client.player.CreatorTablePage;
 import ch.maak.wl.communitylevels.communitylevels.client.player.PlayerTablePage;
 import ch.maak.wl.communitylevels.communitylevels.shared.Icons;
-
 
 @Order(1000)
 public class DefaultOutline extends AbstractOutline {
@@ -25,6 +25,7 @@ public class DefaultOutline extends AbstractOutline {
 		pageList.add(new MostDifficultLevelTablePage());
 		pageList.add(new AllLevelTablePage());
 		pageList.add(new PlayerTablePage());
+		pageList.add(new ClanTablePage());
 		pageList.add(new CreatorTablePage());
 	}
 
