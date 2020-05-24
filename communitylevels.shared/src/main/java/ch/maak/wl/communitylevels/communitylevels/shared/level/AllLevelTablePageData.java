@@ -1,6 +1,7 @@
 package ch.maak.wl.communitylevels.communitylevels.shared.level;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Date;
 
 import javax.annotation.Generated;
@@ -57,6 +58,7 @@ public class AllLevelTablePageData extends AbstractTablePageData {
 	public static class AllLevelTableRowData extends AbstractTableRowData {
 
 		private static final long serialVersionUID = 1L;
+		public static final String levelNr = "levelNr";
 		public static final String levelName = "levelName";
 		public static final String attempts = "attempts";
 		public static final String wins = "wins";
@@ -72,6 +74,7 @@ public class AllLevelTablePageData extends AbstractTablePageData {
 		public static final String recordTurns = "recordTurns";
 		public static final String evtCreated = "evtCreated";
 		public static final String evtRecord = "evtRecord";
+		private BigInteger m_levelNr;
 		private String m_levelName;
 		private Integer m_attempts;
 		private Integer m_wins;
@@ -87,6 +90,14 @@ public class AllLevelTablePageData extends AbstractTablePageData {
 		private Long m_recordTurns;
 		private Date m_evtCreated;
 		private Date m_evtRecord;
+
+		public BigInteger getLevelNr() {
+			return m_levelNr;
+		}
+
+		public void setLevelNr(BigInteger newLevelNr) {
+			m_levelNr = newLevelNr;
+		}
 
 		public String getLevelName() {
 			return m_levelName;

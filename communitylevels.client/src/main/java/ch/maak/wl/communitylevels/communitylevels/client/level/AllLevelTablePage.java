@@ -10,6 +10,7 @@ import org.eclipse.scout.rt.client.ui.basic.cell.Cell;
 import org.eclipse.scout.rt.client.ui.basic.table.AbstractTable;
 import org.eclipse.scout.rt.client.ui.basic.table.ITableRow;
 import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractBigDecimalColumn;
+import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractBigIntegerColumn;
 import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractDateColumn;
 import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractIntegerColumn;
 import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractLongColumn;
@@ -147,6 +148,10 @@ public class AllLevelTablePage extends AbstractPageWithTable<Table> {
 			return getColumnSet().getColumnByClass(EvtRecordColumn.class);
 		}
 
+		public LevelNrColumn getLevelNrColumn() {
+			return getColumnSet().getColumnByClass(LevelNrColumn.class);
+		}
+
 		public RecordHolderClanIdColumn getRecordHolderClanIdColumn() {
 			return getColumnSet().getColumnByClass(RecordHolderClanIdColumn.class);
 		}
@@ -165,6 +170,14 @@ public class AllLevelTablePage extends AbstractPageWithTable<Table> {
 
 		public LevelNameColumn getLevelNameColumn() {
 			return getColumnSet().getColumnByClass(LevelNameColumn.class);
+		}
+
+		@Order(0)
+		public class LevelNrColumn extends AbstractBigIntegerColumn {
+			@Override
+			protected boolean getConfiguredDisplayable() {
+				return false;
+			}
 		}
 
 		@Order(1000)

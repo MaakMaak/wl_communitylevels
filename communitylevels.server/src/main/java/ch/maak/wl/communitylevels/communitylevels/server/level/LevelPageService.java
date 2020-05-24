@@ -33,9 +33,10 @@ public class LevelPageService implements ILevelPageService {
 	public AllLevelTablePageData getLevelTableData(LevelSearchFormData formData, LevelTablePageParam param)
 			throws ProcessingException {
 		StringBuilder statement = new StringBuilder();
-		statement.append("SELECT NAME, ATTEMPTS, WINS, ID, CREATOR_NAME, CREATOR_ID, WIN_RATE, RECORD_HOLDER_CLAN_NAME,"
-				+ " RECORD_HOLDER_CLAN_ID, RECORD_HOLDER_NAME, RECORD_TURNS, RECORD_HOLDER_ID, LIKES, EVT_CREATED, EVT_RECORD "
-				+ "FROM COMMUNITY_LEVELS WHERE 1=1 ");
+		statement.append(
+				"SELECT LEVEL_NR, NAME, ATTEMPTS, WINS, ID, CREATOR_NAME, CREATOR_ID, WIN_RATE, RECORD_HOLDER_CLAN_NAME,"
+						+ " RECORD_HOLDER_CLAN_ID, RECORD_HOLDER_NAME, RECORD_TURNS, RECORD_HOLDER_ID, LIKES, EVT_CREATED, EVT_RECORD "
+						+ "FROM COMMUNITY_LEVELS WHERE 1=1 ");
 
 		if (!StringUtility.isNullOrEmpty(formData.getLevelName().getValue())) {
 			statement.append(and(like("NAME", ":levelName")));
@@ -76,6 +77,7 @@ public class LevelPageService implements ILevelPageService {
 
 		StringBuilder binds = new StringBuilder();
 		binds.append(" INTO ");
+		binds.append(addPageBind(AllLevelTablePageData.AllLevelTableRowData.levelNr));
 		binds.append(addPageBind(AllLevelTablePageData.AllLevelTableRowData.levelName));
 		binds.append(addPageBind(AllLevelTablePageData.AllLevelTableRowData.attempts));
 		binds.append(addPageBind(AllLevelTablePageData.AllLevelTableRowData.wins));

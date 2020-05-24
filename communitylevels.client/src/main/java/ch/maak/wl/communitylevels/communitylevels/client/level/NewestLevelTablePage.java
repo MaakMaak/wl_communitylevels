@@ -36,6 +36,19 @@ public class NewestLevelTablePage extends AllLevelTablePage {
 	public class Table extends AllLevelTablePage.Table {
 
 		@Replace
+		public class LevelNrColumn extends AllLevelTablePage.Table.LevelNrColumn {
+			@Override
+			protected int getConfiguredSortIndex() {
+				return 1;
+			}
+
+			@Override
+			protected boolean getConfiguredSortAscending() {
+				return false;
+			}
+		}
+
+		@Replace
 		public class EvtCreatedColumn extends AllLevelTablePage.Table.EvtCreatedColumn {
 			@Override
 			protected int getConfiguredSortIndex() {
@@ -46,22 +59,6 @@ public class NewestLevelTablePage extends AllLevelTablePage {
 			protected boolean getConfiguredSortAscending() {
 				return false;
 			}
-
-		}
-
-		@Replace
-		public class LevelIdColumn extends AllLevelTablePage.Table.LevelIdColumn {
-			@Override
-			protected int getConfiguredSortIndex() {
-				return 1;
-			}
-
-			@Override
-			protected boolean getConfiguredSortAscending() {
-				return false;
-			}
-
 		}
 	}
-
 }
