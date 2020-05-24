@@ -250,6 +250,11 @@ public class AllLevelTablePage extends AbstractPageWithTable<Table> {
 		public class CreatorIdColumn extends AbstractStringColumn {
 
 			@Override
+			protected String getConfiguredHeaderText() {
+				return TEXTS.get("CreatorId");
+			}
+
+			@Override
 			protected int getConfiguredWidth() {
 				return 200;
 			}
