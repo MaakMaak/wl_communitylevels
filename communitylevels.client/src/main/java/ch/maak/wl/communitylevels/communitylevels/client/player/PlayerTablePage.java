@@ -19,8 +19,8 @@ import org.eclipse.scout.rt.shared.services.common.jdbc.SearchFilter;
 import ch.maak.wl.communitylevels.communitylevels.client.level.AllLevelTablePage;
 import ch.maak.wl.communitylevels.communitylevels.client.util.AbstractShowPlayerMenu;
 import ch.maak.wl.communitylevels.communitylevels.shared.Icons;
+import ch.maak.wl.communitylevels.communitylevels.shared.level.AllLevelTablePageParam;
 import ch.maak.wl.communitylevels.communitylevels.shared.level.IPlayerPageService;
-import ch.maak.wl.communitylevels.communitylevels.shared.level.LevelTablePageParam;
 import ch.maak.wl.communitylevels.communitylevels.shared.level.PlayerTablePageData;
 
 @PageData(PlayerTablePageData.class)
@@ -45,11 +45,8 @@ public class PlayerTablePage extends AbstractPageWithTable<Table> {
 
 	@Override
 	protected IPage<?> execCreateChildPage(ITableRow row) {
-		LevelTablePageParam param = new LevelTablePageParam();
+		AllLevelTablePageParam param = new AllLevelTablePageParam();
 		try {
-			if (row.getCell(2) != null) {
-				param.setRecordHolderName(row.getCell(2).toString());
-			}
 			if (row.getCell(0) != null) {
 				param.setRecordHolderId(row.getCell(0).toString());
 			}
@@ -119,6 +116,11 @@ public class PlayerTablePage extends AbstractPageWithTable<Table> {
 			@Override
 			protected int getConfiguredWidth() {
 				return 200;
+			}
+
+			@Override
+			protected boolean getConfiguredSummary() {
+				return true;
 			}
 		}
 

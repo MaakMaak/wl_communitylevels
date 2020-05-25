@@ -19,9 +19,9 @@ import org.eclipse.scout.rt.shared.services.common.jdbc.SearchFilter;
 import ch.maak.wl.communitylevels.communitylevels.client.level.AllLevelTablePage;
 import ch.maak.wl.communitylevels.communitylevels.client.util.AbstractShowPlayerMenu;
 import ch.maak.wl.communitylevels.communitylevels.shared.Icons;
+import ch.maak.wl.communitylevels.communitylevels.shared.level.AllLevelTablePageParam;
 import ch.maak.wl.communitylevels.communitylevels.shared.level.CreatorTablePageData;
 import ch.maak.wl.communitylevels.communitylevels.shared.level.ICreatorPageService;
-import ch.maak.wl.communitylevels.communitylevels.shared.level.LevelTablePageParam;
 
 @PageData(CreatorTablePageData.class)
 @ClassId("d762e81b-5f0c-4d75-b9eb-a95d43dfec53")
@@ -45,13 +45,10 @@ public class CreatorTablePage extends AbstractPageWithTable<Table> {
 
 	@Override
 	protected IPage<?> execCreateChildPage(ITableRow row) {
-		LevelTablePageParam param = new LevelTablePageParam();
+		AllLevelTablePageParam param = new AllLevelTablePageParam();
 		try {
 			if (row.getCell(1) != null) {
 				param.setCreatorId(row.getCell(1).toString());
-			}
-			if (row.getCell(2) != null) {
-				param.setCreatorName(row.getCell(2).toString());
 			}
 		} catch (Exception e) {
 			System.out.println(e);
@@ -126,6 +123,11 @@ public class CreatorTablePage extends AbstractPageWithTable<Table> {
 			@Override
 			protected int getConfiguredWidth() {
 				return 200;
+			}
+
+			@Override
+			protected boolean getConfiguredSummary() {
+				return true;
 			}
 		}
 

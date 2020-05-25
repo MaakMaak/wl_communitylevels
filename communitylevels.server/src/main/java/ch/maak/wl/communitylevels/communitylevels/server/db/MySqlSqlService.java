@@ -23,6 +23,9 @@ public class MySqlSqlService extends AbstractMySqlSqlService {
 	@Override
 	protected String getConfiguredPassword() {
 		InputStream is = this.getClass().getClassLoader().getResourceAsStream("deploy.properties");
+		if (is == null) {
+			throw new ProcessingException("deploy.properties not found");
+		}
 		Properties p = new Properties();
 		String pw = null;
 		try {

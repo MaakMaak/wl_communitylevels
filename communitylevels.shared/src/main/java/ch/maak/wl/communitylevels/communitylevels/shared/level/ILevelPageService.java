@@ -8,7 +8,7 @@ import org.eclipse.scout.rt.shared.TunnelToServer;
 @TunnelToServer
 public interface ILevelPageService extends IService {
 
-	AllLevelTablePageData getLevelTableData(LevelSearchFormData formData, LevelTablePageParam param);
+	AbstractLevelTablePageData getLevelTableData(LevelSearchFormData formData, AbstractLevelTablePageParam param, AbstractLevelTablePageData pageData);
 
 	void loadLevels(List<String> levelIds);
 

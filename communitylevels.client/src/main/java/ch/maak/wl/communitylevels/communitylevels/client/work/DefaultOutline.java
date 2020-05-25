@@ -24,8 +24,8 @@ public class DefaultOutline extends AbstractOutline {
 		pageList.add(new NewestLevelTablePage());
 		pageList.add(new MostDifficultLevelTablePage());
 		pageList.add(new AllLevelTablePage());
-		pageList.add(new PlayerTablePage());
 		pageList.add(new ClanTablePage());
+		pageList.add(new PlayerTablePage());
 		pageList.add(new CreatorTablePage());
 	}
 

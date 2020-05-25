@@ -1,17 +1,26 @@
 package ch.maak.wl.communitylevels.communitylevels.client.level;
 
+import org.eclipse.scout.rt.client.dto.PageData;
+import org.eclipse.scout.rt.platform.BEANS;
 import org.eclipse.scout.rt.platform.Replace;
+import org.eclipse.scout.rt.platform.classid.ClassId;
 import org.eclipse.scout.rt.platform.text.TEXTS;
 
-import ch.maak.wl.communitylevels.communitylevels.shared.level.LevelTablePageParam;
+import ch.maak.wl.communitylevels.communitylevels.shared.level.AbstractLevelTablePageData;
+import ch.maak.wl.communitylevels.communitylevels.shared.level.ILevelPageService;
+import ch.maak.wl.communitylevels.communitylevels.shared.level.LevelSearchFormData;
+import ch.maak.wl.communitylevels.communitylevels.shared.level.MostDifficultLevelTablePageData;
+import ch.maak.wl.communitylevels.communitylevels.shared.level.MostDifficultLevelTablePageParam;
 
-public class MostDifficultLevelTablePage extends AllLevelTablePage {
+@ClassId("81ce2baa-b4fc-4de9-8095-2c1fd33b9eb9")
+@PageData(MostDifficultLevelTablePageData.class)
+public class MostDifficultLevelTablePage extends AbstractLevelTablePage {
 
 	public MostDifficultLevelTablePage() {
-		super();
+		super(new MostDifficultLevelTablePageParam());
 	}
 
-	public MostDifficultLevelTablePage(LevelTablePageParam param) {
+	public MostDifficultLevelTablePage(MostDifficultLevelTablePageParam param) {
 		super(param);
 	}
 
@@ -30,10 +39,15 @@ public class MostDifficultLevelTablePage extends AllLevelTablePage {
 		return false;
 	}
 
-	public class Table extends AllLevelTablePage.Table {
+	@Override
+	protected AbstractLevelTablePageData getTablePageData(LevelSearchFormData formData) {
+		return BEANS.get(ILevelPageService.class).getLevelTableData(formData, m_param, new MostDifficultLevelTablePageData());
+	}
+
+	public class Table extends AbstractLevelTablePage.Table {
 
 		@Replace
-		public class WinRateColumn extends AllLevelTablePage.Table.WinRateColumn {
+		public class WinRateColumn extends AbstractLevelTablePage.Table.WinRateColumn {
 			@Override
 			protected int getConfiguredSortIndex() {
 				return 0;

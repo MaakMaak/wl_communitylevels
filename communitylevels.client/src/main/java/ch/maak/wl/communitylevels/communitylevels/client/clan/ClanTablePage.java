@@ -36,6 +36,11 @@ public class ClanTablePage extends AbstractPageWithTable<Table> {
 		importPageData(BEANS.get(IClanPageService.class).getClanTableData(filter));
 	}
 
+	@Override
+	protected boolean getConfiguredLeaf() {
+		return true;
+	}
+
 	public class Table extends AbstractTable {
 
 		public ClanIdColumn getClanIdColumn() {
@@ -94,6 +99,11 @@ public class ClanTablePage extends AbstractPageWithTable<Table> {
 			@Override
 			protected int getConfiguredWidth() {
 				return 200;
+			}
+
+			@Override
+			protected boolean getConfiguredSummary() {
+				return true;
 			}
 		}
 

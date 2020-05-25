@@ -21,16 +21,16 @@ import org.eclipse.scout.rt.platform.holders.NVPair;
 import org.eclipse.scout.rt.platform.util.StringUtility;
 import org.eclipse.scout.rt.server.jdbc.SQL;
 
-import ch.maak.wl.communitylevels.communitylevels.shared.level.AllLevelTablePageData;
+import ch.maak.wl.communitylevels.communitylevels.shared.level.AbstractLevelTablePageData;
+import ch.maak.wl.communitylevels.communitylevels.shared.level.AbstractLevelTablePageParam;
 import ch.maak.wl.communitylevels.communitylevels.shared.level.ILevelPageService;
 import ch.maak.wl.communitylevels.communitylevels.shared.level.LevelSearchFormData;
-import ch.maak.wl.communitylevels.communitylevels.shared.level.LevelTablePageParam;
 
 @Bean
 public class LevelPageService implements ILevelPageService {
 
 	@Override
-	public AllLevelTablePageData getLevelTableData(LevelSearchFormData formData, LevelTablePageParam param)
+	public AbstractLevelTablePageData getLevelTableData(LevelSearchFormData formData, AbstractLevelTablePageParam param, AbstractLevelTablePageData pageData)
 			throws ProcessingException {
 		StringBuilder statement = new StringBuilder();
 		statement.append(
@@ -77,25 +77,24 @@ public class LevelPageService implements ILevelPageService {
 
 		StringBuilder binds = new StringBuilder();
 		binds.append(" INTO ");
-		binds.append(addPageBind(AllLevelTablePageData.AllLevelTableRowData.levelNr));
-		binds.append(addPageBind(AllLevelTablePageData.AllLevelTableRowData.levelName));
-		binds.append(addPageBind(AllLevelTablePageData.AllLevelTableRowData.attempts));
-		binds.append(addPageBind(AllLevelTablePageData.AllLevelTableRowData.wins));
-		binds.append(addPageBind(AllLevelTablePageData.AllLevelTableRowData.levelId));
-		binds.append(addPageBind(AllLevelTablePageData.AllLevelTableRowData.creatorName));
-		binds.append(addPageBind(AllLevelTablePageData.AllLevelTableRowData.creatorId));
-		binds.append(addPageBind(AllLevelTablePageData.AllLevelTableRowData.winRate));
-		binds.append(addPageBind(AllLevelTablePageData.AllLevelTableRowData.recordHolderClanName));
-		binds.append(addPageBind(AllLevelTablePageData.AllLevelTableRowData.recordHolderClanId));
-		binds.append(addPageBind(AllLevelTablePageData.AllLevelTableRowData.recordHolderName));
-		binds.append(addPageBind(AllLevelTablePageData.AllLevelTableRowData.recordTurns));
-		binds.append(addPageBind(AllLevelTablePageData.AllLevelTableRowData.recordHolderId));
-		binds.append(addPageBind(AllLevelTablePageData.AllLevelTableRowData.likes));
-		binds.append(addPageBind(AllLevelTablePageData.AllLevelTableRowData.evtCreated));
-		binds.append(addPageBindLast(AllLevelTablePageData.AllLevelTableRowData.evtRecord));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.levelNr));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.levelName));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.attempts));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.wins));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.levelId));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.creatorName));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.creatorId));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.winRate));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.recordHolderClanName));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.recordHolderClanId));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.recordHolderName));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.recordTurns));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.recordHolderId));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.likes));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.evtCreated));
+		binds.append(addPageBindLast(AbstractLevelTablePageData.AbstractLevelTableRowData.evtRecord));
 		statement.append(binds.toString());
 
-		AllLevelTablePageData pageData = new AllLevelTablePageData();
 		System.out.println(SQL.createPlainText(statement.toString(), formData, new NVPair("page", pageData),
 				new NVPair("param", param)));
 
