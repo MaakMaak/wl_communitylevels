@@ -12,11 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.eclipse.scout.rt.platform.BEANS;
-import org.eclipse.scout.rt.platform.security.ConfigFileCredentialVerifier;
 import org.eclipse.scout.rt.server.commons.authentication.AnonymousAccessController;
-import org.eclipse.scout.rt.server.commons.authentication.DevelopmentAccessController;
-import org.eclipse.scout.rt.server.commons.authentication.FormBasedAccessController;
-import org.eclipse.scout.rt.server.commons.authentication.FormBasedAccessController.FormBasedAuthConfig;
 import org.eclipse.scout.rt.server.commons.authentication.ServletFilterHelper;
 import org.eclipse.scout.rt.server.commons.authentication.TrivialAccessController;
 import org.eclipse.scout.rt.server.commons.authentication.TrivialAccessController.TrivialAuthConfig;
@@ -27,19 +23,15 @@ import org.eclipse.scout.rt.server.commons.authentication.TrivialAccessControlle
 public class UiServletFilter implements Filter {
 
 	private AnonymousAccessController m_anonymousAccessController;
-
 	private TrivialAccessController m_trivialAccessController;
-	private FormBasedAccessController m_formBasedAccessController;
-	private DevelopmentAccessController m_developmentAccessController;
+	private ClotAuthAccessController m_clotAuthAccessController;
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		m_trivialAccessController = BEANS.get(TrivialAccessController.class).init(new TrivialAuthConfig()
 				.withExclusionFilter(filterConfig.getInitParameter("filter-exclude")).withLoginPageInstalled(true));
-		m_formBasedAccessController = BEANS.get(FormBasedAccessController.class)
-				.init(new FormBasedAuthConfig().withCredentialVerifier(BEANS.get(ConfigFileCredentialVerifier.class)));
-		m_developmentAccessController = BEANS.get(DevelopmentAccessController.class).init();
 		m_anonymousAccessController = BEANS.get(AnonymousAccessController.class).init();
+		m_clotAuthAccessController = BEANS.get(ClotAuthAccessController.class).initController();
 	}
 
 	@Override
@@ -48,15 +40,11 @@ public class UiServletFilter implements Filter {
 		final HttpServletRequest req = (HttpServletRequest) request;
 		final HttpServletResponse resp = (HttpServletResponse) response;
 
+		if (m_clotAuthAccessController.handle(req, resp, chain)) {
+			return;
+		}
+
 		if (m_trivialAccessController.handle(req, resp, chain)) {
-			return;
-		}
-
-		if (m_formBasedAccessController.handle(req, resp, chain)) {
-			return;
-		}
-
-		if (m_developmentAccessController.handle(req, resp, chain)) {
 			return;
 		}
 
@@ -69,8 +57,8 @@ public class UiServletFilter implements Filter {
 
 	@Override
 	public void destroy() {
-		m_developmentAccessController.destroy();
-		m_formBasedAccessController.destroy();
 		m_trivialAccessController.destroy();
+		m_anonymousAccessController.destroy();
+		m_clotAuthAccessController.destroy();
 	}
 }

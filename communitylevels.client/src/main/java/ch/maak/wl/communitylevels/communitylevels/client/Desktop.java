@@ -4,6 +4,7 @@ import java.beans.PropertyChangeEvent;
 import java.security.AccessController;
 import java.security.Principal;
 import java.util.List;
+import java.util.Set;
 
 import javax.security.auth.Subject;
 
@@ -11,7 +12,9 @@ import org.eclipse.scout.rt.client.session.ClientSessionProvider;
 import org.eclipse.scout.rt.client.ui.action.keystroke.IKeyStroke;
 import org.eclipse.scout.rt.client.ui.action.menu.AbstractMenu;
 import org.eclipse.scout.rt.client.ui.action.menu.IMenu;
+import org.eclipse.scout.rt.client.ui.action.menu.IMenuType;
 import org.eclipse.scout.rt.client.ui.desktop.AbstractDesktop;
+import org.eclipse.scout.rt.client.ui.desktop.OpenUriAction;
 import org.eclipse.scout.rt.client.ui.desktop.outline.IOutline;
 import org.eclipse.scout.rt.client.ui.form.ScoutInfoForm;
 import org.eclipse.scout.rt.platform.Order;
@@ -21,7 +24,8 @@ import org.eclipse.scout.rt.platform.util.StringUtility;
 
 import ch.maak.wl.communitylevels.communitylevels.client.Desktop.UserProfileMenu.ThemeMenu.DarkThemeMenu;
 import ch.maak.wl.communitylevels.communitylevels.client.Desktop.UserProfileMenu.ThemeMenu.DefaultThemeMenu;
-import ch.maak.wl.communitylevels.communitylevels.client.work.DefaultOutline;
+import ch.maak.wl.communitylevels.communitylevels.client.outline.DefaultOutline;
+import ch.maak.wl.communitylevels.communitylevels.client.util.SessionUtility;
 import ch.maak.wl.communitylevels.communitylevels.shared.Icons;
 
 public class Desktop extends AbstractDesktop {
@@ -105,6 +109,11 @@ public class Desktop extends AbstractDesktop {
 				ScoutInfoForm form = new ScoutInfoForm();
 				form.startModify();
 			}
+
+			@Override
+			protected boolean getConfiguredVisible() {
+				return false;
+			}
 		}
 
 		@Order(2000)
@@ -145,6 +154,29 @@ public class Desktop extends AbstractDesktop {
 				protected void execAction() {
 					setTheme(DARK_THEME.toLowerCase());
 				}
+			}
+		}
+
+		@Order(2500)
+		public class LinkWarzoneAccountMenu extends AbstractMenu {
+			@Override
+			protected String getConfiguredText() {
+				return TEXTS.get("LinkWarzoneAccount");
+			}
+
+			@Override
+			protected Set<? extends IMenuType> getConfiguredMenuTypes() {
+				return CollectionUtility.hashSet();
+			}
+
+			@Override
+			protected boolean getConfiguredVisible() {
+				return !SessionUtility.getWarzoneUserPrincipal().isPresent();
+			}
+
+			@Override
+			protected void execAction() {
+				ClientSession.get().getDesktop().openUri("https://www.Warzone.com/CLOT/Auth?p=2211733141", OpenUriAction.SAME_WINDOW);
 			}
 		}
 
