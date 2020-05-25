@@ -2,19 +2,28 @@ package ch.maak.wl.communitylevels.communitylevels.client.level;
 
 import java.util.Date;
 
+import org.eclipse.scout.rt.client.dto.PageData;
+import org.eclipse.scout.rt.platform.BEANS;
 import org.eclipse.scout.rt.platform.Replace;
+import org.eclipse.scout.rt.platform.classid.ClassId;
 import org.eclipse.scout.rt.platform.text.TEXTS;
 import org.eclipse.scout.rt.platform.util.date.DateUtility;
 
-import ch.maak.wl.communitylevels.communitylevels.shared.level.LevelTablePageParam;
+import ch.maak.wl.communitylevels.communitylevels.shared.level.AbstractLevelTablePageData;
+import ch.maak.wl.communitylevels.communitylevels.shared.level.ILevelPageService;
+import ch.maak.wl.communitylevels.communitylevels.shared.level.LevelSearchFormData;
+import ch.maak.wl.communitylevels.communitylevels.shared.level.NewestLevelTablePageData;
+import ch.maak.wl.communitylevels.communitylevels.shared.level.NewestLevelTablePageParam;
 
-public class NewestLevelTablePage extends AllLevelTablePage {
+@PageData(NewestLevelTablePageData.class)
+@ClassId("0cbe475a-71c1-443b-8314-d64c8065fcaf")
+public class NewestLevelTablePage extends AbstractLevelTablePage {
 
 	public NewestLevelTablePage() {
-		super();
+		super(new NewestLevelTablePageParam());
 	}
 
-	public NewestLevelTablePage(LevelTablePageParam param) {
+	public NewestLevelTablePage(NewestLevelTablePageParam param) {
 		super(param);
 	}
 
@@ -33,10 +42,15 @@ public class NewestLevelTablePage extends AllLevelTablePage {
 		return false;
 	}
 
-	public class Table extends AllLevelTablePage.Table {
+	@Override
+	protected AbstractLevelTablePageData getTablePageData(LevelSearchFormData formData) {
+		return BEANS.get(ILevelPageService.class).getLevelTableData(formData, m_param, new NewestLevelTablePageData());
+	}
+
+	public class Table extends AbstractLevelTablePage.Table {
 
 		@Replace
-		public class LevelNrColumn extends AllLevelTablePage.Table.LevelNrColumn {
+		public class LevelNrColumn extends AbstractLevelTablePage.Table.LevelNrColumn {
 			@Override
 			protected int getConfiguredSortIndex() {
 				return 1;
@@ -49,7 +63,7 @@ public class NewestLevelTablePage extends AllLevelTablePage {
 		}
 
 		@Replace
-		public class EvtCreatedColumn extends AllLevelTablePage.Table.EvtCreatedColumn {
+		public class EvtCreatedColumn extends AbstractLevelTablePage.Table.EvtCreatedColumn {
 			@Override
 			protected int getConfiguredSortIndex() {
 				return 0;
