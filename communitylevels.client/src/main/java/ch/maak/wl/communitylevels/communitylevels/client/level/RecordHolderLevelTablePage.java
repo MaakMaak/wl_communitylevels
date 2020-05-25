@@ -6,30 +6,30 @@ import org.eclipse.scout.rt.platform.text.TEXTS;
 
 import ch.maak.wl.communitylevels.communitylevels.shared.level.AbstractLevelTablePageData;
 import ch.maak.wl.communitylevels.communitylevels.shared.level.AllLevelTablePageData;
-import ch.maak.wl.communitylevels.communitylevels.shared.level.AllLevelTablePageParam;
 import ch.maak.wl.communitylevels.communitylevels.shared.level.ILevelPageService;
 import ch.maak.wl.communitylevels.communitylevels.shared.level.LevelSearchFormData;
+import ch.maak.wl.communitylevels.communitylevels.shared.level.RecordHolderLevelTablePageData;
+import ch.maak.wl.communitylevels.communitylevels.shared.level.RecordHolderLevelTablePageParam;
 
-@PageData(AllLevelTablePageData.class)
-public class AllLevelTablePage extends AbstractLevelTablePage {
+@PageData(RecordHolderLevelTablePageData.class)
+public class RecordHolderLevelTablePage extends AbstractLevelTablePage {
 
-	public AllLevelTablePage() {
-		super(new AllLevelTablePageParam());
+	public RecordHolderLevelTablePage() {
+		super(new RecordHolderLevelTablePageParam());
 	}
 
-	@Override
-	public void initPage() {
-		super.initPage();
-		setSearchRequired(getPageParam().isSearchRequired());
-	}
-
-	public AllLevelTablePage(AllLevelTablePageParam param) {
+	public RecordHolderLevelTablePage(RecordHolderLevelTablePageParam param) {
 		super(param);
 	}
 
 	@Override
 	protected String getConfiguredTitle() {
-		return TEXTS.get("AllLevels");
+		return TEXTS.get("YourRecords");
+	}
+
+	@Override
+	protected boolean getConfiguredSearchRequired() {
+		return false;
 	}
 
 	@Override

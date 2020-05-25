@@ -3,6 +3,9 @@ package ch.maak.wl.communitylevels.communitylevels.shared.level;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.eclipse.scout.rt.platform.Bean;
+
+@Bean
 public abstract class AbstractLevelTablePageParam implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -41,6 +44,16 @@ public abstract class AbstractLevelTablePageParam implements Serializable {
 
 	public void setMinCreatedDate(Date minCreatedDate) {
 		m_minCreatedDate = minCreatedDate;
+	}
+
+	public AbstractLevelTablePageParam withRecordHolderId(String recordHolderId) {
+		m_recordHolderId = recordHolderId;
+		return this;
+	}
+
+	public AbstractLevelTablePageParam withCreatorId(String creatorId) {
+		m_creatorId = creatorId;
+		return this;
 	}
 
 	public boolean isSearchRequired() {

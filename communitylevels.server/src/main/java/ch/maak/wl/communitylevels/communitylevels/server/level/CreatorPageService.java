@@ -12,6 +12,7 @@ public class CreatorPageService implements ICreatorPageService {
 
 	@Override
 	public CreatorTablePageData getCreatorTableData() {
+
 		StringBuilder statement = new StringBuilder();
 		statement.append("SELECT CAST((@curRank := @curRank + 1) as CHAR(10)), "
 				+ "C.* FROM( select CREATOR_NAME , CREATOR_ID , COUNT(CREATOR_ID) AS TOTAL_LEVELS , SUM(LIKES) AS TOTAL_LIKES , "

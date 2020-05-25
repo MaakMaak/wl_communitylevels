@@ -23,7 +23,6 @@
 		<ch.maak.wl.communitylevels.communitylevels.version>${project.version}</ch.maak.wl.communitylevels.communitylevels.version>
 		<jdk.source.version>13</jdk.source.version>
 		<org.eclipse.scout.rt.version>9.0.0.033_Simrel_2019_12</org.eclipse.scout.rt.version>
-		<db.password>${communitylevels.db.password}</db.password>
 	</properties>
 
 	<modules>

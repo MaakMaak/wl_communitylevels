@@ -12,7 +12,6 @@ import org.eclipse.scout.rt.platform.util.CollectionUtility;
 import ch.maak.wl.communitylevels.communitylevels.client.ClientSession;
 import ch.maak.wl.communitylevels.communitylevels.shared.Icons;
 
-
 public abstract class AbstractShowPlayerMenu extends AbstractMenu {
 
 	protected abstract String getPlayerId();
@@ -34,8 +33,7 @@ public abstract class AbstractShowPlayerMenu extends AbstractMenu {
 
 	@Override
 	protected void execAction() {
-		ClientSession.get().getDesktop().openUri("https://www.warzone.com/Profile?p=" + getPlayerId(),
-				OpenUriAction.NEW_WINDOW);
+		ClientSession.get().getDesktop().openUri("https://www.warzone.com/Profile?p=" + getPlayerId(), OpenUriAction.NEW_WINDOW);
 
 	}
 
