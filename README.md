@@ -1,5 +1,5 @@
 # Community Levels
-http://communitylevels.online/ui
+http://communitylevels.online
 
 # Setup
 * Add the `inject-communitylevels-db-password` profile to your maven `.m2/settings.xml`.
