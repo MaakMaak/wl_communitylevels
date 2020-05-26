@@ -14,7 +14,9 @@ http://communitylevels.online/ui
       <activeByDefault>true</activeByDefault>
    </activation>
    <properties>
-      <communitylevels.db.password>*add pw here*</communitylevels.db.password>
+      <communitylevels.db.password>*password*</communitylevels.db.password>
+      <communitylevels.wz.mail>*mail*</communitylevels.wz.mail>
+      <communitylevels.wz.api.token>*token*</communitylevels.wz.api.token>
    </properties>
 </profile>
 ```
