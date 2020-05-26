@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.security.Principal;
+import java.util.concurrent.Callable;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.FilterChain;
@@ -16,10 +17,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.eclipse.scout.rt.client.context.ClientRunContexts;
 import org.eclipse.scout.rt.platform.BEANS;
 import org.eclipse.scout.rt.platform.config.CONFIG;
-import org.eclipse.scout.rt.platform.context.RunContext;
-import org.eclipse.scout.rt.platform.context.RunContexts;
 import org.eclipse.scout.rt.platform.exception.PlatformException;
 import org.eclipse.scout.rt.platform.security.SecurityUtility;
 import org.eclipse.scout.rt.platform.util.Base64Utility;
@@ -34,6 +34,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ch.maak.wl.communitylevels.communitylevels.client.clotauth.ClotAuthService;
+import ch.maak.wl.communitylevels.communitylevels.client.util.SessionUtility;
 import ch.maak.wl.communitylevels.communitylevels.shared.clotauth.WarzoneUserPrincipal;
 
 public class ClotAuthAccessController implements IAccessController {
@@ -95,8 +96,15 @@ public class ClotAuthAccessController implements IAccessController {
 			session.invalidate();
 		}
 
-		RunContext.CURRENT.set(RunContexts.empty());
-		WarzoneUserPrincipal principal = BEANS.get(ClotAuthService.class).validateToken(token);
+		WarzoneUserPrincipal principal = ClientRunContexts.copyCurrent(true)
+				.withSubject(SessionUtility.getDefaultSubject())
+				.call(new Callable<WarzoneUserPrincipal>() {
+					@Override
+					public WarzoneUserPrincipal call() throws Exception {
+
+						return BEANS.get(ClotAuthService.class).validateToken(token);
+					}
+				});
 
 		if (principal != null && ObjectUtility.equals(clotpass, principal.getClotPass())) {
 			// Put authenticated principal onto (new) HTTP session
