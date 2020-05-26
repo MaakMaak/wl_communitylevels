@@ -518,7 +518,7 @@ public abstract class AbstractLevelTablePage extends AbstractPageWithTable<Table
 
 			@Override
 			protected Set<? extends IMenuType> getConfiguredMenuTypes() {
-				return CollectionUtility.hashSet(TableMenuType.SingleSelection, TableMenuType.MultiSelection);
+				return CollectionUtility.hashSet(TableMenuType.SingleSelection);
 			}
 
 			@Override
