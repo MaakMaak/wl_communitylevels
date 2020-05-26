@@ -30,7 +30,7 @@ public class UiServletFilter implements Filter {
 	public void init(FilterConfig filterConfig) throws ServletException {
 		m_trivialAccessController = BEANS.get(TrivialAccessController.class).init(new TrivialAuthConfig()
 				.withExclusionFilter(filterConfig.getInitParameter("filter-exclude")).withLoginPageInstalled(true));
-		m_anonymousAccessController = BEANS.get(AnonymousAccessController.class).init();
+		m_anonymousAccessController = BEANS.get(AnonymousAccessController.class).init(new CustomAnonymousAuthConfig());
 		m_clotAuthAccessController = BEANS.get(ClotAuthAccessController.class).initController();
 	}
 
