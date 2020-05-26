@@ -430,6 +430,11 @@ public abstract class AbstractLevelTablePage extends AbstractPageWithTable<Table
 			}
 
 			@Override
+			protected boolean getConfiguredVisible() {
+				return false;
+			}
+
+			@Override
 			protected Set<? extends IMenuType> getConfiguredMenuTypes() {
 				return CollectionUtility.hashSet(TableMenuType.SingleSelection, TableMenuType.MultiSelection,
 						TableMenuType.EmptySpace);
@@ -443,33 +448,6 @@ public abstract class AbstractLevelTablePage extends AbstractPageWithTable<Table
 				if (form.isFormStored()) {
 					reloadPage();
 				}
-			}
-		}
-
-		@Order(500)
-		public class UpdateLevelMenu extends AbstractMenu {
-			@Override
-			protected String getConfiguredText() {
-				return TEXTS.get("UpdateLevel");
-			}
-
-			@Override
-			protected String getConfiguredIconId() {
-				return Icons.Spinner;
-			}
-
-			@Override
-			protected Set<? extends IMenuType> getConfiguredMenuTypes() {
-				return CollectionUtility.hashSet(TableMenuType.SingleSelection, TableMenuType.MultiSelection);
-			}
-
-			@Override
-			protected void execAction() {
-				BEANS.get(ILevelPageService.class).loadLevels(getLevelIdColumn().getSelectedValues());
-				reloadPage();
-				DesktopNotification notification = new DesktopNotification(
-						new Status(TEXTS.get("LevelUpdated"), IStatus.OK), 5000L, true);
-				ClientSession.get().getDesktop().addNotification(notification);
 			}
 		}
 
@@ -524,7 +502,33 @@ public abstract class AbstractLevelTablePage extends AbstractPageWithTable<Table
 			protected String getPlayerId() {
 				return getCreatedCreatorIdColumn().getSelectedValue();
 			}
+		}
 
+		@Order(3500)
+		public class UpdateLevelMenu extends AbstractMenu {
+			@Override
+			protected String getConfiguredText() {
+				return TEXTS.get("UpdateLevel");
+			}
+
+			@Override
+			protected String getConfiguredIconId() {
+				return Icons.Spinner;
+			}
+
+			@Override
+			protected Set<? extends IMenuType> getConfiguredMenuTypes() {
+				return CollectionUtility.hashSet(TableMenuType.SingleSelection, TableMenuType.MultiSelection);
+			}
+
+			@Override
+			protected void execAction() {
+				BEANS.get(ILevelPageService.class).loadLevels(getLevelIdColumn().getSelectedValues());
+				reloadPage();
+				DesktopNotification notification = new DesktopNotification(
+						new Status(TEXTS.get("LevelUpdated"), IStatus.OK), 5000L, true);
+				ClientSession.get().getDesktop().addNotification(notification);
+			}
 		}
 
 	}
