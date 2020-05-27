@@ -22,6 +22,7 @@ import org.eclipse.scout.rt.platform.text.TEXTS;
 import org.eclipse.scout.rt.platform.util.CollectionUtility;
 import org.eclipse.scout.rt.platform.util.StringUtility;
 
+import ch.maak.ch.wl.communitylevels.client.CustomScoutInfoForm;
 import ch.maak.wl.communitylevels.communitylevels.client.Desktop.UserProfileMenu.ThemeMenu.DarkThemeMenu;
 import ch.maak.wl.communitylevels.communitylevels.client.Desktop.UserProfileMenu.ThemeMenu.DefaultThemeMenu;
 import ch.maak.wl.communitylevels.communitylevels.client.outline.DefaultOutline;
@@ -35,13 +36,13 @@ public class Desktop extends AbstractDesktop {
 	}
 
 	@Override
-	protected String getConfiguredTitle() {
-		return TEXTS.get("ApplicationTitle");
+	protected String getConfiguredLogoId() {
+		return null;
 	}
 
 	@Override
-	protected String getConfiguredLogoId() {
-		return Icons.AppLogo;
+	protected String getConfiguredTitle() {
+		return TEXTS.get("ApplicationTitle");
 	}
 
 	@Override
@@ -96,23 +97,26 @@ public class Desktop extends AbstractDesktop {
 			return StringUtility.uppercaseFirst(firstPrincipal.getName());
 		}
 
-		@Order(1000)
-		public class AboutMenu extends AbstractMenu {
-
+		@Order(500)
+		public class LinkWarzoneAccountMenu extends AbstractMenu {
 			@Override
 			protected String getConfiguredText() {
-				return TEXTS.get("About");
+				return TEXTS.get("LinkWarzoneAccount");
 			}
 
 			@Override
-			protected void execAction() {
-				ScoutInfoForm form = new ScoutInfoForm();
-				form.startModify();
+			protected Set<? extends IMenuType> getConfiguredMenuTypes() {
+				return CollectionUtility.hashSet();
 			}
 
 			@Override
 			protected boolean getConfiguredVisible() {
-				return false;
+				return !SessionUtility.getWarzoneUserPrincipal().isPresent();
+			}
+
+			@Override
+			protected void execAction() {
+				ClientSession.get().getDesktop().openUri("https://www.Warzone.com/CLOT/Auth?p=2211733141", OpenUriAction.SAME_WINDOW);
 			}
 		}
 
@@ -158,25 +162,22 @@ public class Desktop extends AbstractDesktop {
 		}
 
 		@Order(2500)
-		public class LinkWarzoneAccountMenu extends AbstractMenu {
+		public class AboutMenu extends AbstractMenu {
+
 			@Override
 			protected String getConfiguredText() {
-				return TEXTS.get("LinkWarzoneAccount");
-			}
-
-			@Override
-			protected Set<? extends IMenuType> getConfiguredMenuTypes() {
-				return CollectionUtility.hashSet();
-			}
-
-			@Override
-			protected boolean getConfiguredVisible() {
-				return !SessionUtility.getWarzoneUserPrincipal().isPresent();
+				return TEXTS.get("About");
 			}
 
 			@Override
 			protected void execAction() {
-				ClientSession.get().getDesktop().openUri("https://www.Warzone.com/CLOT/Auth?p=2211733141", OpenUriAction.SAME_WINDOW);
+				ScoutInfoForm form = new CustomScoutInfoForm();
+				form.startModify();
+			}
+
+			@Override
+			protected boolean getConfiguredVisible() {
+				return true;
 			}
 		}
 

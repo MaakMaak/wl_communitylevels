@@ -30,6 +30,16 @@ public class DefaultOutline extends AbstractOutline {
 	public static Logger LOG = LoggerFactory.getLogger(DefaultOutline.class);
 
 	@Override
+	protected String getConfiguredTitle() {
+		return TEXTS.get("ApplicationTitle");
+	}
+
+	@Override
+	protected String getConfiguredIconId() {
+		return Icons.Star;
+	}
+
+	@Override
 	protected void execCreateChildPages(List<IPage<?>> pageList) {
 		super.execCreateChildPages(pageList);
 		pageList.add(new NewestLevelTablePage());
@@ -51,13 +61,4 @@ public class DefaultOutline extends AbstractOutline {
 		}
 	}
 
-	@Override
-	protected String getConfiguredTitle() {
-		return TEXTS.get("CommunityLevels");
-	}
-
-	@Override
-	protected String getConfiguredIconId() {
-		return Icons.Star;
-	}
 }
