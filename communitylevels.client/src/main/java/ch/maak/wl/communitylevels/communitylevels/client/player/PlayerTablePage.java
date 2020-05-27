@@ -34,7 +34,7 @@ public class PlayerTablePage extends AbstractPageWithTable<Table> {
 
 	@Override
 	protected String getConfiguredOverviewIconId() {
-		return AbstractIcons.Star;
+		return AbstractIcons.StarMarked;
 	}
 
 	@Override

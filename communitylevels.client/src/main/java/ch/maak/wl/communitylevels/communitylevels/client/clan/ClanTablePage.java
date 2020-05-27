@@ -28,7 +28,7 @@ public class ClanTablePage extends AbstractPageWithTable<Table> {
 
 	@Override
 	protected String getConfiguredOverviewIconId() {
-		return AbstractIcons.StarBold;
+		return AbstractIcons.StarMarked;
 	}
 
 	@Override
