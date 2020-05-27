@@ -14,11 +14,11 @@ import org.eclipse.scout.rt.platform.Order;
 import org.eclipse.scout.rt.platform.classid.ClassId;
 import org.eclipse.scout.rt.platform.exception.ProcessingException;
 import org.eclipse.scout.rt.platform.text.TEXTS;
+import org.eclipse.scout.rt.shared.AbstractIcons;
 import org.eclipse.scout.rt.shared.services.common.jdbc.SearchFilter;
 
 import ch.maak.wl.communitylevels.communitylevels.client.level.AllLevelTablePage;
 import ch.maak.wl.communitylevels.communitylevels.client.util.AbstractShowPlayerMenu;
-import ch.maak.wl.communitylevels.communitylevels.shared.Icons;
 import ch.maak.wl.communitylevels.communitylevels.shared.level.AllLevelTablePageParam;
 import ch.maak.wl.communitylevels.communitylevels.shared.level.CreatorTablePageData;
 import ch.maak.wl.communitylevels.communitylevels.shared.level.ICreatorPageService;
@@ -34,7 +34,7 @@ public class CreatorTablePage extends AbstractPageWithTable<Table> {
 
 	@Override
 	protected String getConfiguredOverviewIconId() {
-		return "icon/" + Icons.Trophy75 + ".png";
+		return AbstractIcons.StarMarked;
 	}
 
 	@Override

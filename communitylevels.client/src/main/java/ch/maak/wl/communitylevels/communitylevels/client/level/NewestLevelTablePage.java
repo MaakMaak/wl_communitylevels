@@ -8,6 +8,7 @@ import org.eclipse.scout.rt.platform.Replace;
 import org.eclipse.scout.rt.platform.classid.ClassId;
 import org.eclipse.scout.rt.platform.text.TEXTS;
 import org.eclipse.scout.rt.platform.util.date.DateUtility;
+import org.eclipse.scout.rt.shared.AbstractIcons;
 
 import ch.maak.wl.communitylevels.communitylevels.shared.level.AbstractLevelTablePageData;
 import ch.maak.wl.communitylevels.communitylevels.shared.level.ILevelPageService;
@@ -30,6 +31,11 @@ public class NewestLevelTablePage extends AbstractLevelTablePage {
 	@Override
 	protected String getConfiguredTitle() {
 		return TEXTS.get("NewestLevels");
+	}
+
+	@Override
+	protected String getConfiguredOverviewIconId() {
+		return AbstractIcons.Calendar;
 	}
 
 	@Override

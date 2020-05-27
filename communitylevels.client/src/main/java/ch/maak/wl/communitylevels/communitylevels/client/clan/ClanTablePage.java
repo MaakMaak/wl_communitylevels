@@ -10,11 +10,11 @@ import org.eclipse.scout.rt.platform.BEANS;
 import org.eclipse.scout.rt.platform.Order;
 import org.eclipse.scout.rt.platform.classid.ClassId;
 import org.eclipse.scout.rt.platform.text.TEXTS;
+import org.eclipse.scout.rt.shared.AbstractIcons;
 import org.eclipse.scout.rt.shared.services.common.jdbc.SearchFilter;
 
 import ch.maak.wl.communitylevels.communitylevels.client.clan.ClanTablePage.Table;
 import ch.maak.wl.communitylevels.communitylevels.client.util.AbstractShowClanMenu;
-import ch.maak.wl.communitylevels.communitylevels.shared.Icons;
 import ch.maak.wl.communitylevels.communitylevels.shared.clan.ClanTablePageData;
 import ch.maak.wl.communitylevels.communitylevels.shared.clan.IClanPageService;
 
@@ -28,7 +28,7 @@ public class ClanTablePage extends AbstractPageWithTable<Table> {
 
 	@Override
 	protected String getConfiguredOverviewIconId() {
-		return "icon/" + Icons.Trophy75 + ".png";
+		return AbstractIcons.StarBold;
 	}
 
 	@Override

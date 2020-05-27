@@ -3,6 +3,7 @@ package ch.maak.wl.communitylevels.communitylevels.client.level;
 import org.eclipse.scout.rt.client.dto.PageData;
 import org.eclipse.scout.rt.platform.BEANS;
 import org.eclipse.scout.rt.platform.text.TEXTS;
+import org.eclipse.scout.rt.shared.AbstractIcons;
 
 import ch.maak.wl.communitylevels.communitylevels.shared.level.AbstractLevelTablePageData;
 import ch.maak.wl.communitylevels.communitylevels.shared.level.AllLevelTablePageData;
@@ -25,6 +26,11 @@ public class AllLevelTablePage extends AbstractLevelTablePage {
 
 	public AllLevelTablePage(AllLevelTablePageParam param) {
 		super(param);
+	}
+
+	@Override
+	protected String getConfiguredOverviewIconId() {
+		return AbstractIcons.List;
 	}
 
 	@Override

@@ -64,11 +64,6 @@ public abstract class AbstractLevelTablePage extends AbstractPageWithTable<Table
 	}
 
 	@Override
-	protected String getConfiguredOverviewIconId() {
-		return "icon/" + Icons.Globe75 + ".png";
-	}
-
-	@Override
 	protected void execLoadData(SearchFilter filter) throws ProcessingException {
 		LevelSearchFormData formData = (LevelSearchFormData) filter.getFormData();
 		if (formData == null) {

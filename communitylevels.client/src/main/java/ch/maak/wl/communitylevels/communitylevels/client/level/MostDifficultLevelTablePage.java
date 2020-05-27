@@ -5,6 +5,7 @@ import org.eclipse.scout.rt.platform.BEANS;
 import org.eclipse.scout.rt.platform.Replace;
 import org.eclipse.scout.rt.platform.classid.ClassId;
 import org.eclipse.scout.rt.platform.text.TEXTS;
+import org.eclipse.scout.rt.shared.AbstractIcons;
 
 import ch.maak.wl.communitylevels.communitylevels.shared.level.AbstractLevelTablePageData;
 import ch.maak.wl.communitylevels.communitylevels.shared.level.ILevelPageService;
@@ -27,6 +28,11 @@ public class MostDifficultLevelTablePage extends AbstractLevelTablePage {
 	@Override
 	protected String getConfiguredTitle() {
 		return TEXTS.get("MostDifficultLevels");
+	}
+
+	@Override
+	protected String getConfiguredOverviewIconId() {
+		return AbstractIcons.LightbulbOn;
 	}
 
 	@Override
