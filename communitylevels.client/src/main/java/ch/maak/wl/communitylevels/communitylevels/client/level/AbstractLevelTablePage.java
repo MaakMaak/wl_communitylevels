@@ -446,6 +446,32 @@ public abstract class AbstractLevelTablePage extends AbstractPageWithTable<Table
 			}
 		}
 
+		@Order(500)
+		public class PlayLevelMenu extends AbstractMenu {
+			@Override
+			protected String getConfiguredText() {
+				return TEXTS.get("PlayLevel");
+			}
+
+			@Override
+			protected Set<? extends IMenuType> getConfiguredMenuTypes() {
+				return CollectionUtility.hashSet(TableMenuType.SingleSelection);
+			}
+
+			@Override
+			protected String getConfiguredIconId() {
+				return Icons.CaretRight;
+			}
+
+			@Override
+			protected void execAction() {
+				ClientSession.get().getDesktop().openUri(
+						"https://www.warzone.com/SinglePlayer?Level=" + getLevelIdColumn().getSelectedValue(),
+						OpenUriAction.NEW_WINDOW);
+
+			}
+		}
+
 		@Order(1000)
 		public class ShowLevelMenu extends AbstractMenu {
 			@Override
