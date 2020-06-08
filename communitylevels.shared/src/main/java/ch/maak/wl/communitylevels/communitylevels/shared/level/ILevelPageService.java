@@ -10,6 +10,8 @@ public interface ILevelPageService extends IService {
 
 	AbstractLevelTablePageData getLevelTableData(LevelSearchFormData formData, AbstractLevelTablePageParam param, AbstractLevelTablePageData pageData);
 
+	AbstractLevelTablePageData getCampaignLevelTableData(LevelSearchFormData formData, AbstractLevelTablePageParam param, AbstractLevelTablePageData pageData);
+
 	void loadLevels(List<String> levelIds);
 
 }

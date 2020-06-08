@@ -95,8 +95,7 @@ public class LevelPageService implements ILevelPageService {
 		binds.append(addPageBindLast(AbstractLevelTablePageData.AbstractLevelTableRowData.evtRecord));
 		statement.append(binds.toString());
 
-		System.out.println(SQL.createPlainText(statement.toString(), formData, new NVPair("page", pageData),
-				new NVPair("param", param)));
+		System.out.println(SQL.createPlainText(statement.toString(), formData, new NVPair("page", pageData), new NVPair("param", param)));
 
 		SQL.selectInto(statement.toString(), formData, new NVPair("page", pageData), new NVPair("param", param));
 
@@ -121,5 +120,36 @@ public class LevelPageService implements ILevelPageService {
 				throw new VetoException("Failed loading level with id " + levelId);
 			}
 		}
+	}
+
+	@Override
+	public AbstractLevelTablePageData getCampaignLevelTableData(LevelSearchFormData formData, AbstractLevelTablePageParam param, AbstractLevelTablePageData pageData) {
+		StringBuilder statement = new StringBuilder();
+		statement.append(
+				"SELECT LEVEL_NR, NAME, ATTEMPTS, WINS, ID, WIN_RATE, RECORD_HOLDER_CLAN_NAME,"
+						+ " RECORD_HOLDER_CLAN_ID, RECORD_HOLDER_NAME, RECORD_TURNS, RECORD_HOLDER_ID, LIKES, EVT_RECORD "
+						+ "FROM SINGLE_PLAYER_LEVELS WHERE 1=1 ");
+		StringBuilder binds = new StringBuilder();
+		binds.append(" INTO ");
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.levelNr));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.levelName));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.attempts));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.wins));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.levelId));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.winRate));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.recordHolderClanName));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.recordHolderClanId));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.recordHolderName));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.recordTurns));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.recordHolderId));
+		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.likes));
+		binds.append(addPageBindLast(AbstractLevelTablePageData.AbstractLevelTableRowData.evtRecord));
+		statement.append(binds.toString());
+
+		System.out.println(SQL.createPlainText(statement.toString(), formData, new NVPair("page", pageData), new NVPair("param", param)));
+
+		SQL.selectInto(statement.toString(), formData, new NVPair("page", pageData), new NVPair("param", param));
+
+		return pageData;
 	}
 }
