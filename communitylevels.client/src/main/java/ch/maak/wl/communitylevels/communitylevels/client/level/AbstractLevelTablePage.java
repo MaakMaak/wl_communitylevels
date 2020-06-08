@@ -204,7 +204,7 @@ public abstract class AbstractLevelTablePage extends AbstractPageWithTable<Table
 
 			@Override
 			protected int getConfiguredWidth() {
-				return 60;
+				return 75;
 			}
 		}
 

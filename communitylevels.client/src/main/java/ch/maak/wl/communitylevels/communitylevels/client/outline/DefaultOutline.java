@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import ch.maak.wl.communitylevels.communitylevels.client.clan.ClanTablePage;
 import ch.maak.wl.communitylevels.communitylevels.client.level.AllLevelTablePage;
+import ch.maak.wl.communitylevels.communitylevels.client.level.CampaignLevelTablePage;
 import ch.maak.wl.communitylevels.communitylevels.client.level.CreatorLevelTablePage;
 import ch.maak.wl.communitylevels.communitylevels.client.level.MostDifficultLevelTablePage;
 import ch.maak.wl.communitylevels.communitylevels.client.level.NewestLevelTablePage;
@@ -48,6 +49,7 @@ public class DefaultOutline extends AbstractOutline {
 		pageList.add(new ClanTablePage());
 		pageList.add(new PlayerTablePage());
 		pageList.add(new CreatorTablePage());
+		pageList.add(new CampaignLevelTablePage());
 
 		Optional<WarzoneUserPrincipal> principal = SessionUtility.getWarzoneUserPrincipal();
 		if (principal.isPresent()) {
