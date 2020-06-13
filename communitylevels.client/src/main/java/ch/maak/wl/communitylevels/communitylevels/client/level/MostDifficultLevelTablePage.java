@@ -37,7 +37,7 @@ public class MostDifficultLevelTablePage extends AbstractLevelTablePage {
 
 	@Override
 	protected void execInitPage() {
-		m_param.setMaxWinRate(20L);
+		m_param.setMaxWinRate(10L);
 	}
 
 	@Override
