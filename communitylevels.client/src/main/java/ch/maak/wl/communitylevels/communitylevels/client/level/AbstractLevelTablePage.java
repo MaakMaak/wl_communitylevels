@@ -473,32 +473,17 @@ public abstract class AbstractLevelTablePage extends AbstractPageWithTable<Table
 		}
 
 		@Order(1000)
-		public class ShowLevelMenu extends AbstractMenu {
-			@Override
-			protected String getConfiguredText() {
-				return TEXTS.get("ShowLevel");
-			}
+		@ClassId("43a1bf37-68aa-4cef-b129-1460f60713fc")
+		public class ShowLevelMenu extends AbstractShowLevelMenu {
 
 			@Override
-			protected String getConfiguredIconId() {
-				return Icons.Info;
-			}
-
-			@Override
-			protected Set<? extends IMenuType> getConfiguredMenuTypes() {
-				return CollectionUtility.hashSet(TableMenuType.SingleSelection);
-			}
-
-			@Override
-			protected void execAction() {
-				ClientSession.get().getDesktop().openUri(
-						"https://www.warzone.com/SinglePlayer/Level?ID=" + getLevelIdColumn().getSelectedValue(),
-						OpenUriAction.NEW_WINDOW);
-
+			protected String getLevelId() {
+				return getLevelIdColumn().getSelectedValue();
 			}
 		}
 
 		@Order(2000)
+		@ClassId("d9469f3e-16c3-44ac-9d71-ff0d7d16396e")
 		public class ShowRecordHolderMenu extends AbstractShowPlayerMenu {
 			@Override
 			protected String getConfiguredText() {
@@ -512,6 +497,7 @@ public abstract class AbstractLevelTablePage extends AbstractPageWithTable<Table
 		}
 
 		@Order(3000)
+		@ClassId("4e6df8ef-a673-4852-804d-d08a4fea9ffd")
 		public class ShowCreatorMenu extends AbstractShowPlayerMenu {
 
 			@Override
@@ -526,6 +512,7 @@ public abstract class AbstractLevelTablePage extends AbstractPageWithTable<Table
 		}
 
 		@Order(3500)
+		@ClassId("dd13e4c6-bc2d-4f4b-99b2-416593148bf6")
 		public class UpdateLevelMenu extends AbstractMenu {
 			@Override
 			protected String getConfiguredText() {

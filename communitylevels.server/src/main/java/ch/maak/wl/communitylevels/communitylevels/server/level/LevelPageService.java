@@ -21,13 +21,14 @@ import org.eclipse.scout.rt.platform.holders.NVPair;
 import org.eclipse.scout.rt.platform.util.StringUtility;
 import org.eclipse.scout.rt.server.jdbc.SQL;
 
+import ch.maak.wl.communitylevels.communitylevels.server.AbstractDataService;
 import ch.maak.wl.communitylevels.communitylevels.shared.level.AbstractLevelTablePageData;
 import ch.maak.wl.communitylevels.communitylevels.shared.level.AbstractLevelTablePageParam;
 import ch.maak.wl.communitylevels.communitylevels.shared.level.ILevelPageService;
 import ch.maak.wl.communitylevels.communitylevels.shared.level.LevelSearchFormData;
 
 @Bean
-public class LevelPageService implements ILevelPageService {
+public class LevelPageService extends AbstractDataService implements ILevelPageService {
 
 	@Override
 	public AbstractLevelTablePageData getLevelTableData(LevelSearchFormData formData, AbstractLevelTablePageParam param, AbstractLevelTablePageData pageData)
@@ -95,19 +96,9 @@ public class LevelPageService implements ILevelPageService {
 		binds.append(addPageBindLast(AbstractLevelTablePageData.AbstractLevelTableRowData.evtRecord));
 		statement.append(binds.toString());
 
-		System.out.println(SQL.createPlainText(statement.toString(), formData, new NVPair("page", pageData), new NVPair("param", param)));
-
 		SQL.selectInto(statement.toString(), formData, new NVPair("page", pageData), new NVPair("param", param));
 
 		return pageData;
-	}
-
-	private String addPageBind(String column) {
-		return ":{page." + column + "}, ";
-	}
-
-	private String addPageBindLast(String column) {
-		return ":{page." + column + "} ";
 	}
 
 	@Override
@@ -145,8 +136,6 @@ public class LevelPageService implements ILevelPageService {
 		binds.append(addPageBind(AbstractLevelTablePageData.AbstractLevelTableRowData.likes));
 		binds.append(addPageBindLast(AbstractLevelTablePageData.AbstractLevelTableRowData.evtRecord));
 		statement.append(binds.toString());
-
-		System.out.println(SQL.createPlainText(statement.toString(), formData, new NVPair("page", pageData), new NVPair("param", param)));
 
 		SQL.selectInto(statement.toString(), formData, new NVPair("page", pageData), new NVPair("param", param));
 

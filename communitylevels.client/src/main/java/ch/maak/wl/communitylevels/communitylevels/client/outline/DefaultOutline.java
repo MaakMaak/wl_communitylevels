@@ -20,6 +20,7 @@ import ch.maak.wl.communitylevels.communitylevels.client.level.NewestLevelTableP
 import ch.maak.wl.communitylevels.communitylevels.client.level.RecordHolderLevelTablePage;
 import ch.maak.wl.communitylevels.communitylevels.client.player.CreatorTablePage;
 import ch.maak.wl.communitylevels.communitylevels.client.player.PlayerTablePage;
+import ch.maak.wl.communitylevels.communitylevels.client.records.StatisticsNodePage;
 import ch.maak.wl.communitylevels.communitylevels.client.util.SessionUtility;
 import ch.maak.wl.communitylevels.communitylevels.shared.Icons;
 import ch.maak.wl.communitylevels.communitylevels.shared.clotauth.WarzoneUserPrincipal;
@@ -43,6 +44,7 @@ public class DefaultOutline extends AbstractOutline {
 	@Override
 	protected void execCreateChildPages(List<IPage<?>> pageList) {
 		super.execCreateChildPages(pageList);
+		pageList.add(new StatisticsNodePage());
 		pageList.add(new NewestLevelTablePage());
 		pageList.add(new MostDifficultLevelTablePage());
 		pageList.add(new AllLevelTablePage());

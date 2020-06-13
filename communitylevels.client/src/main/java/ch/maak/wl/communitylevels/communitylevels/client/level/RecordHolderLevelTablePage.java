@@ -2,6 +2,7 @@ package ch.maak.wl.communitylevels.communitylevels.client.level;
 
 import org.eclipse.scout.rt.client.dto.PageData;
 import org.eclipse.scout.rt.platform.BEANS;
+import org.eclipse.scout.rt.platform.Replace;
 import org.eclipse.scout.rt.platform.text.TEXTS;
 import org.eclipse.scout.rt.shared.AbstractIcons;
 
@@ -45,5 +46,17 @@ public class RecordHolderLevelTablePage extends AbstractLevelTablePage {
 
 	public class Table extends AbstractLevelTablePage.Table {
 
+		@Replace
+		public class EvtRecordColumn extends AbstractLevelTablePage.Table.EvtRecordColumn {
+			@Override
+			protected boolean getConfiguredSortAscending() {
+				return false;
+			}
+
+			@Override
+			protected int getConfiguredSortIndex() {
+				return 1;
+			}
+		}
 	}
 }
