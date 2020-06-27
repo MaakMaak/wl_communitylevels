@@ -2,6 +2,7 @@ package ch.maak.wl.communitylevels.communitylevels.client.level;
 
 import org.eclipse.scout.rt.client.dto.PageData;
 import org.eclipse.scout.rt.platform.BEANS;
+import org.eclipse.scout.rt.platform.Replace;
 import org.eclipse.scout.rt.platform.text.TEXTS;
 import org.eclipse.scout.rt.shared.AbstractIcons;
 
@@ -45,5 +46,22 @@ public class CreatorLevelTablePage extends AbstractLevelTablePage {
 
 	public class Table extends AbstractLevelTablePage.Table {
 
+		public CustomEvtCreatedColumn getCustomEvtCreatedColumn() {
+			return getColumnSet().getColumnByClass(CustomEvtCreatedColumn.class);
+		}
+
+		@Replace
+		public class CustomEvtCreatedColumn extends EvtCreatedColumn {
+
+			@Override
+			protected int getConfiguredSortIndex() {
+				return 0;
+			}
+
+			@Override
+			protected boolean getConfiguredSortAscending() {
+				return false;
+			}
+		}
 	}
 }
