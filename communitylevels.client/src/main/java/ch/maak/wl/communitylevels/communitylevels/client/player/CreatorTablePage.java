@@ -87,6 +87,18 @@ public class CreatorTablePage extends AbstractPageWithTable<Table> {
 			return getColumnSet().getColumnByClass(TotalLevelsColumn.class);
 		}
 
+		public PointsDifficultyColumn getPointsDifficultyColumn() {
+			return getColumnSet().getColumnByClass(PointsDifficultyColumn.class);
+		}
+
+		public PointsAttemptsColumn getPointsAttemptsColumn() {
+			return getColumnSet().getColumnByClass(PointsAttemptsColumn.class);
+		}
+
+		public PointsColumn getPointsColumn() {
+			return getColumnSet().getColumnByClass(PointsColumn.class);
+		}
+
 		public RankColumn getRankColumn() {
 			return getColumnSet().getColumnByClass(RankColumn.class);
 		}
@@ -228,6 +240,64 @@ public class CreatorTablePage extends AbstractPageWithTable<Table> {
 				return BackgroundEffect.BAR_CHART;
 			}
 
+			@Override
+			protected String getConfiguredHeaderTooltipText() {
+				return TEXTS.get("PointsCalculation");
+			}
+		}
+
+		@Order(5000)
+		public class PointsLikesColumn extends AbstractBigDecimalColumn {
+			@Override
+			protected String getConfiguredHeaderText() {
+				return TEXTS.get("PointsLikes");
+			}
+
+			@Override
+			protected int getConfiguredWidth() {
+				return 150;
+			}
+
+			@Override
+			protected boolean getConfiguredVisible() {
+				return false;
+			}
+		}
+
+		@Order(6000)
+		public class PointsAttemptsColumn extends AbstractBigDecimalColumn {
+			@Override
+			protected String getConfiguredHeaderText() {
+				return TEXTS.get("PointsAttempts");
+			}
+
+			@Override
+			protected int getConfiguredWidth() {
+				return 150;
+			}
+
+			@Override
+			protected boolean getConfiguredVisible() {
+				return false;
+			}
+		}
+
+		@Order(7000)
+		public class PointsDifficultyColumn extends AbstractBigDecimalColumn {
+			@Override
+			protected String getConfiguredHeaderText() {
+				return TEXTS.get("PointsDifficulty");
+			}
+
+			@Override
+			protected int getConfiguredWidth() {
+				return 150;
+			}
+
+			@Override
+			protected boolean getConfiguredVisible() {
+				return false;
+			}
 		}
 
 		@Order(3000)

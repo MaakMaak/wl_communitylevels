@@ -65,6 +65,9 @@ public class CreatorTablePageData extends AbstractTablePageData {
 		public static final String winRate = "winRate";
 		public static final String totalLevels = "totalLevels";
 		public static final String points = "points";
+		public static final String pointsLikes = "pointsLikes";
+		public static final String pointsAttempts = "pointsAttempts";
+		public static final String pointsDifficulty = "pointsDifficulty";
 		private String m_rank;
 		private String m_creatorId;
 		private String m_creatorName;
@@ -74,6 +77,9 @@ public class CreatorTablePageData extends AbstractTablePageData {
 		private BigDecimal m_winRate;
 		private Integer m_totalLevels;
 		private BigDecimal m_points;
+		private BigDecimal m_pointsLikes;
+		private BigDecimal m_pointsAttempts;
+		private BigDecimal m_pointsDifficulty;
 
 		public String getRank() {
 			return m_rank;
@@ -145,6 +151,30 @@ public class CreatorTablePageData extends AbstractTablePageData {
 
 		public void setPoints(BigDecimal newPoints) {
 			m_points = newPoints;
+		}
+
+		public BigDecimal getPointsLikes() {
+			return m_pointsLikes;
+		}
+
+		public void setPointsLikes(BigDecimal newPointsLikes) {
+			m_pointsLikes = newPointsLikes;
+		}
+
+		public BigDecimal getPointsAttempts() {
+			return m_pointsAttempts;
+		}
+
+		public void setPointsAttempts(BigDecimal newPointsAttempts) {
+			m_pointsAttempts = newPointsAttempts;
+		}
+
+		public BigDecimal getPointsDifficulty() {
+			return m_pointsDifficulty;
+		}
+
+		public void setPointsDifficulty(BigDecimal newPointsDifficulty) {
+			m_pointsDifficulty = newPointsDifficulty;
 		}
 	}
 }
