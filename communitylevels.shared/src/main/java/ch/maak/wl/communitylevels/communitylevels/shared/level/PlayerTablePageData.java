@@ -61,11 +61,15 @@ public class PlayerTablePageData extends AbstractTablePageData {
 		public static final String playerName = "playerName";
 		public static final String records = "records";
 		public static final String points = "points";
+		public static final String records100d = "records100d";
+		public static final String points100d = "points100d";
 		private String m_playerId;
 		private String m_rank;
 		private String m_playerName;
 		private Long m_records;
 		private BigDecimal m_points;
+		private Long m_records100d;
+		private BigDecimal m_points100d;
 
 		public String getPlayerId() {
 			return m_playerId;
@@ -105,6 +109,22 @@ public class PlayerTablePageData extends AbstractTablePageData {
 
 		public void setPoints(BigDecimal newPoints) {
 			m_points = newPoints;
+		}
+
+		public Long getRecords100d() {
+			return m_records100d;
+		}
+
+		public void setRecords100d(Long newRecords100d) {
+			m_records100d = newRecords100d;
+		}
+
+		public BigDecimal getPoints100d() {
+			return m_points100d;
+		}
+
+		public void setPoints100d(BigDecimal newPoints100d) {
+			m_points100d = newPoints100d;
 		}
 	}
 }

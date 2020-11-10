@@ -3,8 +3,6 @@ package ch.maak.wl.communitylevels.communitylevels.client.player;
 import org.eclipse.scout.rt.client.dto.PageData;
 import org.eclipse.scout.rt.client.ui.basic.table.AbstractTable;
 import org.eclipse.scout.rt.client.ui.basic.table.ITableRow;
-import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractBigDecimalColumn;
-import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractLongColumn;
 import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractStringColumn;
 import org.eclipse.scout.rt.client.ui.desktop.outline.pages.AbstractPageWithTable;
 import org.eclipse.scout.rt.client.ui.desktop.outline.pages.IPage;
@@ -67,6 +65,14 @@ public class PlayerTablePage extends AbstractPageWithTable<Table> {
 			return getColumnSet().getColumnByClass(PointsColumn.class);
 		}
 
+		public Points100dColumn getPoints100dColumn() {
+			return getColumnSet().getColumnByClass(Points100dColumn.class);
+		}
+
+		public Records100dColumn getRecords100dColumn() {
+			return getColumnSet().getColumnByClass(Records100dColumn.class);
+		}
+
 		public PlayerIdColumn getPlayerIdColumn() {
 			return getColumnSet().getColumnByClass(PlayerIdColumn.class);
 		}
@@ -125,11 +131,7 @@ public class PlayerTablePage extends AbstractPageWithTable<Table> {
 		}
 
 		@Order(3000)
-		public class RecordsColumn extends AbstractLongColumn {
-			@Override
-			protected String getConfiguredHeaderText() {
-				return TEXTS.get("Records");
-			}
+		public class RecordsColumn extends AbstractRecordsColumn {
 
 			@Override
 			protected int getConfiguredWidth() {
@@ -138,16 +140,7 @@ public class PlayerTablePage extends AbstractPageWithTable<Table> {
 		}
 
 		@Order(4000)
-		public class PointsColumn extends AbstractBigDecimalColumn {
-			@Override
-			protected String getConfiguredHeaderText() {
-				return TEXTS.get("Points");
-			}
-
-			@Override
-			protected int getConfiguredWidth() {
-				return 100;
-			}
+		public class PointsColumn extends AbstractPointsColumn {
 
 			@Override
 			protected boolean getConfiguredSortAscending() {
@@ -160,10 +153,30 @@ public class PlayerTablePage extends AbstractPageWithTable<Table> {
 			}
 
 			@Override
-			protected String getConfiguredBackgroundEffect() {
-				return BackgroundEffect.BAR_CHART;
+			protected int getConfiguredWidth() {
+				return 100;
+			}
+		}
+
+		@Order(4500)
+		public class Records100dColumn extends AbstractRecordsColumn {
+			@Override
+			protected String getConfiguredHeaderSuffix() {
+				return TEXTS.get("Days100");
+			}
+		}
+
+		@Order(5000)
+		public class Points100dColumn extends AbstractPointsColumn {
+			@Override
+			protected String getConfiguredHeaderSuffix() {
+				return TEXTS.get("Days100");
 			}
 
+			@Override
+			protected int getConfiguredWidth() {
+				return 150;
+			}
 		}
 
 		@Order(3000)
@@ -173,8 +186,6 @@ public class PlayerTablePage extends AbstractPageWithTable<Table> {
 			protected String getPlayerId() {
 				return getPlayerIdColumn().getSelectedValue();
 			}
-
 		}
-
 	}
 }
