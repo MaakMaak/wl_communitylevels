@@ -21,7 +21,10 @@ http://communitylevels.online
 </profile>
 ```
 
-
+# Logs
+```
+/var/log/tomcat8/
+```
 
 
 
