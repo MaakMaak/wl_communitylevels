@@ -7,13 +7,13 @@ import ch.maak.wl.communitylevels.communitylevels.server.util.PropertyUtility;
 public class MySqlSqlService extends AbstractMySqlSqlService {
 	@Override
 	protected String getConfiguredJdbcMappingName() {
-		String host = "login-144.hoststar.ch";
-		return "jdbc:mysql://" + host + "/Warlight?zeroDateTimeBehavior=convertToNull";
+		String host = "lx39.hoststar.hosting";
+		return "jdbc:mysql://" + host + "/ch98612_Warlight?zeroDateTimeBehavior=convertToNull";
 	}
 
 	@Override
 	protected String getConfiguredUsername() {
-		return "Warlight";
+		return "ch98612_Warlight";
 	}
 
 	@Override
