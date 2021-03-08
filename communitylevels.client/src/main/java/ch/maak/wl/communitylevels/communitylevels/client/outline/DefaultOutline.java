@@ -8,9 +8,11 @@ import org.eclipse.scout.rt.client.ui.desktop.outline.pages.IPage;
 import org.eclipse.scout.rt.platform.BEANS;
 import org.eclipse.scout.rt.platform.Order;
 import org.eclipse.scout.rt.platform.text.TEXTS;
+import org.eclipse.scout.rt.platform.util.StringUtility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import ch.maak.wl.communitylevels.communitylevels.client.admin.UpdateLogTablePage;
 import ch.maak.wl.communitylevels.communitylevels.client.clan.ClanTablePage;
 import ch.maak.wl.communitylevels.communitylevels.client.level.AllLevelTablePage;
 import ch.maak.wl.communitylevels.communitylevels.client.level.CampaignLevelTablePage;
@@ -55,13 +57,18 @@ public class DefaultOutline extends AbstractOutline {
 
 		Optional<WarzoneUserPrincipal> principal = SessionUtility.getWarzoneUserPrincipal();
 		if (principal.isPresent()) {
+			LOG.info("User {}", principal.get().getName());
+			LOG.info("Id {}", principal.get().getUserId());
+
 			CreatorLevelTablePageParam creatorpageParam = (CreatorLevelTablePageParam) BEANS.get(CreatorLevelTablePageParam.class).withCreatorId(principal.get().getUserId());
 			pageList.add(new CreatorLevelTablePage(creatorpageParam));
 
 			RecordHolderLevelTablePageParam recordHolderPageParam = (RecordHolderLevelTablePageParam) BEANS.get(RecordHolderLevelTablePageParam.class).withRecordHolderId(principal.get().getUserId());
 			pageList.add(new RecordHolderLevelTablePage(recordHolderPageParam));
-			LOG.info("User {}", principal.get().getName());
-			LOG.info("Id {}", principal.get().getUserId());
+
+			if (StringUtility.equalsIgnoreCase("2211733141", principal.get().getUserId())) {
+				pageList.add(new UpdateLogTablePage());
+			}
 		}
 	}
 
