@@ -16,10 +16,10 @@ import org.eclipse.scout.rt.client.ui.tile.AbstractTileGrid;
 import org.eclipse.scout.rt.client.ui.tile.fields.AbstractHtmlFieldTile;
 import org.eclipse.scout.rt.platform.BEANS;
 import org.eclipse.scout.rt.platform.Order;
+import org.eclipse.scout.rt.platform.cache.CacheRegistryService;
 import org.eclipse.scout.rt.platform.classid.ClassId;
 import org.eclipse.scout.rt.platform.text.TEXTS;
 import org.eclipse.scout.rt.platform.util.StringUtility;
-import org.eclipse.scout.rt.shared.cache.CacheRegistryService;
 
 import ch.maak.ch.wl.communitylevels.client.AbstractLevelColumn;
 import ch.maak.ch.wl.communitylevels.client.AbstractPlayerColumn;

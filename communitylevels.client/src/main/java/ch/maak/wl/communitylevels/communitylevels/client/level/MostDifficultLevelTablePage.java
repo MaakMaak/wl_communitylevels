@@ -58,8 +58,14 @@ public class MostDifficultLevelTablePage extends AbstractLevelTablePage {
 			protected int getConfiguredSortIndex() {
 				return 0;
 			}
+		}
 
+		@Replace
+		public class AttemptsColumn extends AbstractLevelTablePage.Table.AttemptsColumn {
+			@Override
+			protected int getConfiguredSortIndex() {
+				return 1;
+			}
 		}
 	}
-
 }

@@ -9,12 +9,18 @@
 		<groupId>ch.maak.wl.communitylevels</groupId>
 		<artifactId>communitylevels</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
-		<relativePath>../communitylevels/pom.xml</relativePath>
+		<relativePath>../communitylevels/</relativePath>
 	</parent>
 
 	<artifactId>communitylevels.ui.html</artifactId>
 
 	<name>Community Levels HTML UI</name>
+	
+	<properties>
+		<master_skip_npm_build_dev>true</master_skip_npm_build_dev>
+		<master_skip_npm_build_prod>true</master_skip_npm_build_prod>
+		<master_skip_copy_webpack_build_output>true</master_skip_copy_webpack_build_output>
+	</properties>
 
 	<dependencies>
 		<dependency>

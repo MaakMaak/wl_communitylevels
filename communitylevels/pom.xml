@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>org.eclipse.scout</groupId>
 		<artifactId>maven_rt_plugin_config-master</artifactId>
-		<version>3.1.0</version>
+		<version>3.12.7</version>
 		<relativePath></relativePath>
 	</parent>
 
@@ -22,7 +22,7 @@
 	<properties>
 		<ch.maak.wl.communitylevels.communitylevels.version>${project.version}</ch.maak.wl.communitylevels.communitylevels.version>
 		<jdk.source.version>13</jdk.source.version>
-		<org.eclipse.scout.rt.version>9.0.0.033_Simrel_2019_12</org.eclipse.scout.rt.version>
+		<org.eclipse.scout.rt.version>10.0.45</org.eclipse.scout.rt.version>
 	</properties>
 
 	<modules>

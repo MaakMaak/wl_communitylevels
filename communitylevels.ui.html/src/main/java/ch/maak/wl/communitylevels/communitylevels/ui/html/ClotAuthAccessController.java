@@ -62,7 +62,6 @@ public class ClotAuthAccessController implements IAccessController {
 
 	@Override
 	public boolean handle(final HttpServletRequest req, final HttpServletResponse resp, final FilterChain chain) throws IOException, ServletException {
-
 		switch (getTarget(req)) {
 		case "/login":
 		case "/logout":
@@ -110,12 +109,12 @@ public class ClotAuthAccessController implements IAccessController {
 			// Put authenticated principal onto (new) HTTP session
 			BEANS.get(ServletFilterHelper.class).putPrincipalOnSession(req, principal);
 			storePrincipalToCookie(req, resp, principal);
-			BEANS.get(ServletFilterHelper.class).forwardTo(req, resp, "/");
+			BEANS.get(ServletFilterHelper.class).redirectTo(req, resp, "/");
 			BEANS.get(ServletFilterHelper.class).continueChainAsSubject(principal, req, resp, chain);
 		} else {
 			// User not authenticated
 			LOG.info("Authentication failed");
-			BEANS.get(ServletFilterHelper.class).forwardTo(req, resp, "/");
+			BEANS.get(ServletFilterHelper.class).redirectTo(req, resp, "/");
 		}
 	}
 

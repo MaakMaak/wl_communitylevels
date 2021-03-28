@@ -2,9 +2,9 @@ package ch.maak.wl.communitylevels.communitylevels.client.records;
 
 import org.eclipse.scout.rt.client.ui.tile.fields.AbstractHtmlFieldTile;
 import org.eclipse.scout.rt.platform.BEANS;
+import org.eclipse.scout.rt.platform.cache.CacheRegistryService;
 import org.eclipse.scout.rt.platform.util.NumberUtility;
 import org.eclipse.scout.rt.platform.util.StringUtility;
-import org.eclipse.scout.rt.shared.cache.CacheRegistryService;
 
 import ch.maak.wl.communitylevels.communitylevels.shared.records.StatisticCodeType;
 

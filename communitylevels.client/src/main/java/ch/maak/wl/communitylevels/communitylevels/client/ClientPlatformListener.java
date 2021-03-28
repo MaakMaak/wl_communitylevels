@@ -6,10 +6,10 @@ import org.eclipse.scout.rt.platform.BEANS;
 import org.eclipse.scout.rt.platform.IPlatform.State;
 import org.eclipse.scout.rt.platform.IPlatformListener;
 import org.eclipse.scout.rt.platform.PlatformEvent;
-import org.eclipse.scout.rt.shared.cache.CacheBuilder;
-import org.eclipse.scout.rt.shared.cache.CacheRegistryService;
-import org.eclipse.scout.rt.shared.cache.ICache;
-import org.eclipse.scout.rt.shared.cache.ICacheValueResolver;
+import org.eclipse.scout.rt.platform.cache.CacheBuilder;
+import org.eclipse.scout.rt.platform.cache.CacheRegistryService;
+import org.eclipse.scout.rt.platform.cache.ICache;
+import org.eclipse.scout.rt.platform.cache.ICacheValueResolver;
 
 import ch.maak.wl.communitylevels.communitylevels.shared.records.IStatisticsService;
 import ch.maak.wl.communitylevels.communitylevels.shared.records.StatisticCodeType;

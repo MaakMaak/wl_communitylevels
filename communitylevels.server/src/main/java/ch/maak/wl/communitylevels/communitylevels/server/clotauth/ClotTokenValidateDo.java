@@ -1,20 +1,16 @@
 package ch.maak.wl.communitylevels.communitylevels.server.clotauth;
 
-import java.io.Serializable;
+import org.eclipse.scout.rt.dataobject.DoEntity;
+import org.eclipse.scout.rt.dataobject.DoValue;
+import org.eclipse.scout.rt.dataobject.TypeName;
 
-import org.eclipse.scout.rt.platform.dataobject.AttributeName;
-import org.eclipse.scout.rt.platform.dataobject.DoEntity;
-import org.eclipse.scout.rt.platform.dataobject.DoValue;
+@TypeName("ClotTokenValidate")
+public class ClotTokenValidateDo extends DoEntity {
 
-public class ClotTokenValidateDo extends DoEntity implements Serializable {
-	private static final long serialVersionUID = 1L;
-
-	@AttributeName("name")
 	public DoValue<String> name() {
 		return doValue("name");
 	}
 
-	@AttributeName("clotpass")
 	public DoValue<String> clotpass() {
 		return doValue("clotpass");
 	}

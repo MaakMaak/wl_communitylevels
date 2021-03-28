@@ -1,10 +1,10 @@
 package ch.maak.wl.communitylevels.communitylevels.shared.security;
 
-import java.security.PermissionCollection;
-
+import org.eclipse.scout.rt.security.AbstractAccessControlService;
+import org.eclipse.scout.rt.security.IAccessControlService;
+import org.eclipse.scout.rt.security.IPermissionCollection;
 import org.eclipse.scout.rt.shared.ISession;
-import org.eclipse.scout.rt.shared.services.common.security.AbstractAccessControlService;
-import org.eclipse.scout.rt.shared.services.common.security.IAccessControlService;
+import org.eclipse.scout.rt.shared.session.Sessions;
 
 /**
  * {@link IAccessControlService} service that uses {@link ISession#getUserId()}
@@ -19,11 +19,11 @@ public class AccessControlService extends AbstractAccessControlService<String> {
 
 	@Override
 	protected String getCurrentUserCacheKey() {
-		return getUserIdOfCurrentUser();
+		return Sessions.getCurrentUserId();
 	}
 
 	@Override
-	protected PermissionCollection execLoadPermissions(String userId) {
+	protected IPermissionCollection execLoadPermissions(String userId) {
 		return null;
 	}
 }
