@@ -31,7 +31,8 @@ public class UiServletFilter implements Filter {
 		m_trivialAccessController = BEANS.get(TrivialAccessController.class).init(new TrivialAuthConfig()
 				.withExclusionFilter(filterConfig.getInitParameter("filter-exclude")).withLoginPageInstalled(true));
 		m_anonymousAccessController = BEANS.get(AnonymousAccessController.class).init(new CustomAnonymousAuthConfig());
-		m_clotAuthAccessController = BEANS.get(ClotAuthAccessController.class).initController();
+		// m_clotAuthAccessController =
+		// BEANS.get(ClotAuthAccessController.class).initController();
 	}
 
 	@Override
@@ -40,9 +41,9 @@ public class UiServletFilter implements Filter {
 		final HttpServletRequest req = (HttpServletRequest) request;
 		final HttpServletResponse resp = (HttpServletResponse) response;
 
-		if (m_clotAuthAccessController.handle(req, resp, chain)) {
-			return;
-		}
+//		if (m_clotAuthAccessController.handle(req, resp, chain)) {
+//			return;
+//		}
 
 		if (m_trivialAccessController.handle(req, resp, chain)) {
 			return;
