@@ -19,16 +19,7 @@
 		<filter-class>ch.maak.wl.communitylevels.communitylevels.ui.html.UiServletFilter</filter-class>
 		<init-param>
 			<param-name>filter-exclude</param-name>
-			<param-value>
-		        /favicon/*
-				/fonts/*
-				/logo.png
-				/jquery*.js
-				/login*.js
-				/logout*.js
-				/communitylevels-theme*.css
-				/eclipse-scout*.js
-		      </param-value>
+			<param-value>/favicon/*,/fonts/*,/logo.png,/jquery*.js,/login*.js,/logout*.js,/communitylevels-theme*.css,/eclipse-scout*.js</param-value>
 		</init-param>
 	</filter>
 	<filter-mapping>
