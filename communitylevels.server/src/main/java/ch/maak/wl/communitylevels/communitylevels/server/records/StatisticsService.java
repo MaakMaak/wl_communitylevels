@@ -42,7 +42,7 @@ public class StatisticsService extends AbstractDataService implements IStatistic
 		statement.append(
 				"SELECT CAST((@curRank := @curRank + 1) as CHAR(10))," +
 						"C.* FROM( select MAX(RECORD_HOLDER_NAME), COUNT(ID) , MAX(EVT_RECORD)" +
-						"from COMMUNITY_LEVELS WHERE 1 = 1 GROUP BY EVT_RECORD, RECORD_HOLDER_ID ORDER BY COUNT(ID) DESC , EVT_RECORD) C , (SELECT @curRank := 0) R ;");
+						"from COMMUNITY_LEVELS WHERE RECORD_HOLDER_ID IS NOT NULL GROUP BY EVT_RECORD, RECORD_HOLDER_ID ORDER BY COUNT(ID) DESC , EVT_RECORD) C , (SELECT @curRank := 0) R ;");
 		StringBuilder binds = new StringBuilder();
 		binds.append(" INTO ");
 		binds.append(addPageBind(MostRecordsOnDateRowData.rank));
