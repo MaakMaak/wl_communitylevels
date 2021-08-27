@@ -68,7 +68,7 @@ public class CreatorTablePageData extends AbstractTablePageData {
 		public static final String pointsLikes = "pointsLikes";
 		public static final String pointsAttempts = "pointsAttempts";
 		public static final String pointsDifficulty = "pointsDifficulty";
-		private String m_rank;
+		private Integer m_rank;
 		private String m_creatorId;
 		private String m_creatorName;
 		private Integer m_totalAttempts;
@@ -81,11 +81,11 @@ public class CreatorTablePageData extends AbstractTablePageData {
 		private BigDecimal m_pointsAttempts;
 		private BigDecimal m_pointsDifficulty;
 
-		public String getRank() {
+		public Integer getRank() {
 			return m_rank;
 		}
 
-		public void setRank(String newRank) {
+		public void setRank(Integer newRank) {
 			m_rank = newRank;
 		}
 

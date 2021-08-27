@@ -1,8 +1,11 @@
 package ch.maak.wl.communitylevels.communitylevels.client.clan;
 
+import java.util.Set;
+
 import org.eclipse.scout.rt.client.dto.Data;
 import org.eclipse.scout.rt.client.ui.basic.table.AbstractTable;
 import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractBigDecimalColumn;
+import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractIntegerColumn;
 import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractLongColumn;
 import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractStringColumn;
 import org.eclipse.scout.rt.client.ui.desktop.outline.pages.AbstractPageWithTable;
@@ -10,6 +13,7 @@ import org.eclipse.scout.rt.platform.BEANS;
 import org.eclipse.scout.rt.platform.Order;
 import org.eclipse.scout.rt.platform.classid.ClassId;
 import org.eclipse.scout.rt.platform.text.TEXTS;
+import org.eclipse.scout.rt.platform.util.CollectionUtility;
 import org.eclipse.scout.rt.shared.AbstractIcons;
 import org.eclipse.scout.rt.shared.services.common.jdbc.SearchFilter;
 
@@ -64,7 +68,7 @@ public class ClanTablePage extends AbstractPageWithTable<Table> {
 		}
 
 		@Order(1000)
-		public class RankColumn extends AbstractStringColumn {
+		public class RankColumn extends AbstractIntegerColumn {
 			@Override
 			protected String getConfiguredHeaderText() {
 				return TEXTS.get("Rank");
@@ -73,6 +77,11 @@ public class ClanTablePage extends AbstractPageWithTable<Table> {
 			@Override
 			protected int getConfiguredWidth() {
 				return 50;
+			}
+
+			@Override
+			protected Set<String> getConfiguredAllowedAggregationFunctions() {
+				return CollectionUtility.emptyHashSet();
 			}
 		}
 

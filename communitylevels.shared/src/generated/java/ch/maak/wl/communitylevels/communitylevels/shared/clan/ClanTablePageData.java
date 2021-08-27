@@ -59,17 +59,17 @@ public class ClanTablePageData extends AbstractTablePageData {
 		public static final String clanName = "clanName";
 		public static final String records = "records";
 		public static final String points = "points";
-		private String m_rank;
+		private Integer m_rank;
 		private String m_clanId;
 		private String m_clanName;
 		private Long m_records;
 		private BigDecimal m_points;
 
-		public String getRank() {
+		public Integer getRank() {
 			return m_rank;
 		}
 
-		public void setRank(String newRank) {
+		public void setRank(Integer newRank) {
 			m_rank = newRank;
 		}
 

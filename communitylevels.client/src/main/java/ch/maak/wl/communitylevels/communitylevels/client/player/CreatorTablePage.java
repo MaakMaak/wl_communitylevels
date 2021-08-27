@@ -1,5 +1,7 @@
 package ch.maak.wl.communitylevels.communitylevels.client.player;
 
+import java.util.Set;
+
 import org.eclipse.scout.rt.client.dto.PageData;
 import org.eclipse.scout.rt.client.ui.basic.table.AbstractTable;
 import org.eclipse.scout.rt.client.ui.basic.table.ITableRow;
@@ -14,6 +16,7 @@ import org.eclipse.scout.rt.platform.Order;
 import org.eclipse.scout.rt.platform.classid.ClassId;
 import org.eclipse.scout.rt.platform.exception.ProcessingException;
 import org.eclipse.scout.rt.platform.text.TEXTS;
+import org.eclipse.scout.rt.platform.util.CollectionUtility;
 import org.eclipse.scout.rt.shared.AbstractIcons;
 import org.eclipse.scout.rt.shared.services.common.jdbc.SearchFilter;
 
@@ -104,7 +107,7 @@ public class CreatorTablePage extends AbstractPageWithTable<Table> {
 		}
 
 		@Order(1000)
-		public class RankColumn extends AbstractStringColumn {
+		public class RankColumn extends AbstractIntegerColumn {
 			@Override
 			protected String getConfiguredHeaderText() {
 				return TEXTS.get("Rank");
@@ -113,6 +116,11 @@ public class CreatorTablePage extends AbstractPageWithTable<Table> {
 			@Override
 			protected int getConfiguredWidth() {
 				return 50;
+			}
+
+			@Override
+			protected Set<String> getConfiguredAllowedAggregationFunctions() {
+				return CollectionUtility.emptyHashSet();
 			}
 		}
 
