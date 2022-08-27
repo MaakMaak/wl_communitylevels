@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>ch.maak.wz.communitylevels</groupId>
+    <artifactId>communitylevels</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <relativePath>../communitylevels</relativePath>
+  </parent>
+
+  <artifactId>communitylevels.server.app.war</artifactId>
+  <packaging>war</packaging>
+
+  <name>Community Levels Server Application</name>
+
+  <build>
+    <finalName>ch.maak.wz.communitylevels.communitylevels.server</finalName>
+
+    <!-- configure maven-resources-plugin to replace placeholders in resources -->
+    <resources>
+      <resource>
+        <directory>${project.basedir}/src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>properties-maven-plugin</artifactId>
+        <version>1.0.0</version>
+        <executions>
+          <execution>
+            <id>write-project-properties</id>
+            <goals>
+              <goal>write-project-properties</goal>
+            </goals>
+            <phase>test</phase>
+          </execution>
+        </executions>
+        <configuration>
+          <outputFile>${basedir}/target/classes/deploy.properties</outputFile>
+          <properties/>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>ch.maak.wz.communitylevels</groupId>
+      <artifactId>communitylevels.server</artifactId>
+    </dependency>
+
+    <!-- provided by container -->
+    <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+</project>

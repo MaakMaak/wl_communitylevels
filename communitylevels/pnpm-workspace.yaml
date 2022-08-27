@@ -1,0 +1,3 @@
+packages:
+- '.'
+- 'communitylevels.ui.html'
